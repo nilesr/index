@@ -9,7 +9,7 @@ def rjs(f, z):
         result.append("var x = document.getElementsByClassName(z);")
         result.append("for (var i = 0; i < x.length; i++) { x[i].style.display = 'inline-block'; }")
         result.append("var x = document.getElementById(z);")
-        result.append("x.onclick = function() { while(z.length > " + str(len(z)) + ") { key({keyCode: 27}); } }")
+        result.append("x.onclick = function() { collapse('" + str(z) + "');}")
     result.append("}")
     if type(f[2]) != str:
         for l in f[2]:
@@ -20,7 +20,7 @@ def rjs2(f, z):
     result = []
     if type(f[2]) != str:
         result.append("if (z == '"+z+"') {")
-        result.append("document.getElementById(z+'" + f[1] + "').onclick = function() { key({keyCode:" + str(ord(f[1].upper())) + " }) };")
+        result.append("document.getElementById(z+'" + f[1] + "').onclick = function() { if (z != \""+z+"\") { collapse(\""+z+"\") } key({keyCode:" + str(ord(f[1].upper())) + " }) };")
         result.append("}")
         for l in f[2]:
             result.append(rjs2(l, z + f[1]))
@@ -33,7 +33,7 @@ def rhtml(f, z):
         href = ["href='"+f[2]+"'"]
     if len(z) > 0:
         href = ["style='display: none;'"]
-    result.append(''.join(["<a class='"+z+"' id='",z,f[1],"' ",*href," onclick='key({keyCode:"+str(ord(f[1].upper()))+"})'>", f[0], "</a>"]))
+    result.append(''.join(["<a class='"+z+"' id='",z,f[1],"' ",*href," onclick='if (z == \""+z+"\") { key({keyCode:"+str(ord(f[1].upper()))+"}) }'>", f[0], "</a>"]))
     if type(f[2]) != str:
         result.append("<span style='position: absolute; left: 200px; top: 0px;'>")
         for l in f[2]:
@@ -88,6 +88,20 @@ master = ["""<!doctype html>
 <link rel="stylesheet" type="text/css" href="style.css">
 <script>
 var z = "";
+function collapse_one() {
+    var x = document.getElementsByClassName(z);
+    for (var i = 0; i < x.length; i++) { x[i].style.display = 'none'; }
+    document.getElementById(z).style.color = '#eeeeee';
+    z = z.substring(0, z.length - 1);"""]
+for f in l:
+    master.append(rjs2(f, ""))
+master.append("""
+}
+function collapse(new_z) {
+    while(z.length > new_z.length) {
+        collapse_one();
+    }
+}
 function key(event) {
     event = event || window.event;
     console.log(event.keyCode);
@@ -95,13 +109,8 @@ function key(event) {
         if (z.length == 0) {
             return;
         }
-        var x = document.getElementsByClassName(z);
-        for (var i = 0; i < x.length; i++) { x[i].style.display = 'none'; }
-        document.getElementById(z).style.color = '#eeeeee';
-        z = z.substring(0, z.length - 1);
-        """]
-for f in l:
-    master.append(rjs2(f, ""))
+        collapse_one()
+        """)
 master.append("""
         return;
     }
@@ -113,7 +122,7 @@ master.append("""
 }
 document.onkeydown = key;
 </script></head>""")
-master.append("""<body class="hasGoogleVoiceExt"><div id="content">""")
+master.append("""<body class=""><div id="content">""")
 for f in l:
     master.append(rhtml(f, ""))
 master.append("""</div></body></html>""")
