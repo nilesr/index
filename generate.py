@@ -9,7 +9,7 @@ def rjs(f, z):
         result.append("var x = document.getElementsByClassName(z);")
         result.append("for (var i = 0; i < x.length; i++) { x[i].style.display = 'inline-block'; }")
         result.append("var x = document.getElementById(z);")
-        result.append("x.onclick = function() { key({keyCode: 27}) }")
+        result.append("x.onclick = function() { while(z.length > " + str(len(z)) + ") { key({keyCode: 27}); } }")
     result.append("}")
     if type(f[2]) != str:
         for l in f[2]:
