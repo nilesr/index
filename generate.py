@@ -71,7 +71,7 @@ l = [
         , ["/cyb", "c", "https://lainchan.org/cyb/catalog.html"]
         , ["/lit", "l", "https://lainchan.org/lit/catalog.html"]
         , ["/λ", "p", "https://lainchan.org/%CE%BB/catalog.html"]
-        , ["/art", "x", "https://lainchan.org/art/catalog.html"]
+        , ["/art", "a", "https://lainchan.org/art/catalog.html"]
       ]]
     , ["/vola", "v", "https://volafile.io/r/kUFzLJ"]
     , ["/tube/", "t", [
