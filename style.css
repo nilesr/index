@@ -1,6 +1,6 @@
 body {
 	font-family:helvetica;
-	background:url("background.png") no-repeat center center fixed;
+	background:url("background.png") no-repeat center/cover fixed;
 }
 #content {
 	width:90%;
