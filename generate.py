@@ -57,6 +57,7 @@ l = [
             , ["/desutech", "d", "http://desuchan.moe/tech/"]
             , ["/g", "g", "https://4chan.org/g"]
             , ["/silicon", "s", "https://sushigirl.us/silicon/catalog.html"]
+            , ["/endtech", "e", "https://endchan.xyz/tech/catalog.html"]
         ]]
         , ["/music/", "m", [
               ["/mu", "m", "http://aurorachan.net/mu/"]

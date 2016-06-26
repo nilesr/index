@@ -13,12 +13,12 @@ body {
 	color: #eeeeee;
 	position:relative;
 	top:50px;
-	transition: color .5s ease-in-out;
 }
 a {
 	font-size: 24px;
 	/*color: #595959;*/
 	color: #eeeeee;
+	transition: color .1s;
 	text-decoration: none;
 }
 a:hover {
