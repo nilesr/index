@@ -48,6 +48,13 @@ l = [
         , ["/top", "t", "https://reddit.com/r/all/top?t=1h"]
         , ["/new", "n", "https://reddit.com/r/FreeGamesOnSteam/new"]
         , ["/shithole","s", "https://reddit.com/r/freegamesonsteam"]
+        , ["/common/", "c", [
+              ["/seatte", "e","https://reddit.com/r/seattle" ]
+            , ["/sysadmin", "s","https://reddit.com/r/sysadmin" ]
+            , ["/programmerhumor", "p","https://reddit.com/r/programmerhumor" ]
+            , ["/4chan", "4","https://reddit.com/r/4chan" ]
+            , ["/dccomics", "d","https://reddit.com/r/dccomics" ]
+        ]]
       ]]
     , ["/chan/", "c", [
           ["/ck", "k", "https://4chan.org/ck"]
@@ -58,6 +65,7 @@ l = [
             , ["/g", "g", "https://4chan.org/g"]
             , ["/silicon", "s", "https://sushigirl.us/silicon/catalog.html"]
             , ["/endtech", "e", "https://endchan.xyz/tech/catalog.html"]
+            , ["/λ", "p", "https://lainchan.org/%CE%BB/catalog.html"]
         ]]
         , ["/music/", "m", [
               ["/mu", "m", "http://aurorachan.net/mu/"]
@@ -71,24 +79,31 @@ l = [
         ]]
         , ["/cyb", "c", "https://lainchan.org/cyb/catalog.html"]
         , ["/lit", "l", "https://lainchan.org/lit/catalog.html"]
-        , ["/λ", "p", "https://lainchan.org/%CE%BB/catalog.html"]
         , ["/art", "a", "https://lainchan.org/art/catalog.html"]
       ]]
     , ["/vola", "v", "https://volafile.io/r/kUFzLJ"]
     , ["/tube/", "t", [
-          ["/0", "0", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KR4Q-pC-7MLb_DoRmzYOCUw"]
-        , ["/1", "1", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KRZ43r5UVGNraUgvyPaUMBU"]
-        , ["/2", "2", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KQO4aHOqypivLefSFKq2vp1"]
-        , ["/3", "3", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KSeW6AmMmg3D4etDs5YeX8q"]
+          ["/zero", "0", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KR4Q-pC-7MLb_DoRmzYOCUw"]
+        , ["/one", "1", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KRZ43r5UVGNraUgvyPaUMBU"]
+        , ["/two", "2", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KQO4aHOqypivLefSFKq2vp1"]
+        , ["/three", "3", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KSeW6AmMmg3D4etDs5YeX8q"]
       ]]
     #, ["/mail", "g", "https://gmail.com"] # Fixed tab
 ]
+special = "http://google.com" # Todo: put something fun here
 
 master = ["""<!doctype html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 <script>
 var z = "";
+var ctrl = false;
+var shift = false;
+function pi() {
+    if (ctrl && shift) {
+        window.location = '""" + special + """';
+    }
+}
 function collapse_one() {
     var x = document.getElementsByClassName(z);
     for (var i = 0; i < x.length; i++) { x[i].style.display = 'none'; }
@@ -103,9 +118,19 @@ function collapse(new_z) {
         collapse_one();
     }
 }
+function keyup(event) {
+    event = event || window.event;
+    var x = event.which || event.keyCode;
+    if (x == 17) {
+        ctrl = false;
+    }
+    if (x == 16) {
+        shift = false;
+    }
+
+}
 function key(event) {
     event = event || window.event;
-    console.log(event.keyCode);
     if (event.keyCode == 27) {
         if (z.length == 0) {
             return;
@@ -116,16 +141,23 @@ master.append("""
         return;
     }
     var x = event.which || event.keyCode;
+    if (x == 17) {
+        ctrl = true;
+    }
+    if (x == 16) {
+        shift = true;
+    }
 """)
 for f in l:
     master.append(rjs(f, ""))
 master.append("""
 }
 document.onkeydown = key;
+document.onkeyup = keyup;
 </script></head>""")
 master.append("""<body class=""><div id="content">""")
 for f in l:
     master.append(rhtml(f, ""))
-master.append("""</div></body></html>""")
+master.append("""</div><div id="pi" onclick='pi();'>π</div></body></html>""")
 master = "\n".join(master)
 print(master)

@@ -22,5 +22,15 @@ a {
 	text-decoration: none;
 }
 a:hover {
-	text-decoration:underline;;
+	text-decoration:underline;
+}
+#pi {
+	font-size: 0.8em;
+	position: fixed;
+	bottom: 5px;
+	right: 5px;
+	color: #eeeeee;
+	background-color: rgba(0,0,0,0.5);
+	padding: 5px;
+	text-align: right;
 }
