@@ -46,8 +46,12 @@ l = [
       ["/r/", "r", [
           ["/all", "a", "https://reddit.com/r/all"]
         , ["/top", "t", "https://reddit.com/r/all/top?t=1h"]
-        , ["/new", "n", "https://reddit.com/r/FreeGamesOnSteam/new"]
-        , ["/shithole","s", "https://reddit.com/r/freegamesonsteam"]
+        , ["/shithole/","s", [
+              ["/default", "d", "https://reddit.com/r/freegamesonsteam"]
+            , ["/spam", "s", "https://www.reddit.com/r/FreeGamesOnSteam/about/spam/"]
+            , ["/reports", "r", "https://www.reddit.com/r/FreeGamesOnSteam/about/reports/"]
+            , ["/new", "n", "https://reddit.com/r/FreeGamesOnSteam/new"]
+        ]]
         , ["/common/", "c", [
               ["/seatte", "e","https://reddit.com/r/seattle" ]
             , ["/sysadmin", "s","https://reddit.com/r/sysadmin" ]
