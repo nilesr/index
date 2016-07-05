@@ -44,7 +44,9 @@ def rhtml(f, z):
 
 l = [
       ["/r/", "r", [
-          ["/all", "a", "https://reddit.com/r/all"]
+          ["/inbox", "i", "https://reddit.com/message/inbox"]
+        , ["/modmail", "m", "https://reddit.com/message/moderator"]
+        , ["/all", "a", "https://reddit.com/r/all"]
         , ["/top", "t", "https://reddit.com/r/all/top?t=1h"]
         , ["/shithole/","s", [
               ["/default", "d", "https://reddit.com/r/freegamesonsteam"]
@@ -97,6 +99,16 @@ l = [
 special = "http://google.com" # Todo: put something fun here
 
 master = ["""<!doctype html>
+<!--
+
+
+This code is auto-generated
+Any changes you make will be overwritten when you run "make"
+
+"""]
+for i in range(100): master.append("")
+master.append("""
+-->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="style.css">
 <script>
@@ -112,7 +124,7 @@ function collapse_one() {
     var x = document.getElementsByClassName(z);
     for (var i = 0; i < x.length; i++) { x[i].style.display = 'none'; }
     document.getElementById(z).style.color = '#eeeeee';
-    z = z.substring(0, z.length - 1);"""]
+    z = z.substring(0, z.length - 1);""")
 for f in l:
     master.append(rjs2(f, ""))
 master.append("""
