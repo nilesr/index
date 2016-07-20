@@ -76,6 +76,7 @@ l = [
         , ["/music/", "m", [
               ["/mu", "m", "http://aurorachan.net/mu/"]
             , ["/tunes", "t", "https://sushigirl.us/tunes/catalog.html"]
+            , ["/media", "e", "https://uboachan.net/media/catalog.html"]
         ]]
         , ["/transport", "n", "http://boards.4chan.org/n"]
         , ["/news", "z", "http://boards.4chan.org/news"]
@@ -93,6 +94,7 @@ l = [
         , ["/one", "1", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KRZ43r5UVGNraUgvyPaUMBU"]
         , ["/two", "2", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KQO4aHOqypivLefSFKq2vp1"]
         , ["/three", "3", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KSeW6AmMmg3D4etDs5YeX8q"]
+        , ["/four", "4", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KTkhLF_MECKCA8DFWQIsGq7"]
       ]]
     #, ["/mail", "g", "https://gmail.com"] # Fixed tab
 ]
