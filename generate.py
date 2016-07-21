@@ -69,6 +69,7 @@ l = [
               ["/laintech", "l" , "https://lainchan.org/tech/catalog.html"]
             , ["/desutech", "d", "http://desuchan.moe/tech/"]
             , ["/g", "g", "https://4chan.org/g"]
+            , ["/8tech", "8", "https://8ch.net/tech/catalog.html"]
             , ["/silicon", "s", "https://sushigirl.us/silicon/catalog.html"]
             , ["/endtech", "e", "https://endchan.xyz/tech/catalog.html"]
             , ["/λ", "p", "https://lainchan.org/%CE%BB/catalog.html"]
