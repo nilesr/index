@@ -97,9 +97,8 @@ l = [
         , ["/three", "3", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KSeW6AmMmg3D4etDs5YeX8q"]
         , ["/four", "4", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KTkhLF_MECKCA8DFWQIsGq7"]
       ]]
-    #, ["/mail", "g", "https://gmail.com"] # Fixed tab
 ]
-special = "http://google.com" # Todo: put something fun here
+special = "https://niles.xyz"
 
 master = ["""<!doctype html>
 <!--
