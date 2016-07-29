@@ -85,9 +85,12 @@ l = [
               ["/ot", "o", "https://uboachan.net/ot/catalog.html"]
             , ["/lounge", "l", "https://sushigirl.us/lounge/catalog.html"]
         ]]
-        , ["/cyb", "c", "https://lainchan.org/cyb/catalog.html"]
-        , ["/lit", "l", "https://lainchan.org/lit/catalog.html"]
-        , ["/art", "a", "https://lainchan.org/art/catalog.html"]
+        , ["/lain/","l", [
+              ["/mega", "m" , "https://lainchan.org/mega/catalog.html"]
+            , ["/cyb", "c", "https://lainchan.org/cyb/catalog.html"]
+            , ["/lit", "l", "https://lainchan.org/lit/catalog.html"]
+            , ["/art", "a", "https://lainchan.org/art/catalog.html"]
+        ]]
       ]]
     , ["/vola", "v", "https://volafile.io/r/kUFzLJ"]
     , ["/tube/", "t", [
