@@ -1,3 +1,76 @@
+l = [
+      ["/r/", "r", [
+          ["/inbox", "i", "https://reddit.com/message/inbox"]
+        , ["/modmail", "m", "https://reddit.com/message/moderator"]
+        , ["/all", "a", "https://reddit.com/r/all"]
+        , ["/top", "t", "https://reddit.com/r/all/top?t=1h"]
+        , ["/shithole/","s", [
+              ["/default", "d", "https://reddit.com/r/freegamesonsteam"]
+            , ["/spam", "s", "https://www.reddit.com/r/FreeGamesOnSteam/about/spam/"]
+            , ["/reports", "r", "https://www.reddit.com/r/FreeGamesOnSteam/about/reports/"]
+            , ["/new", "n", "https://reddit.com/r/FreeGamesOnSteam/new"]
+        ]]
+        , ["/common/", "c", [
+              ["/seatte", "e","https://reddit.com/r/seattle" ]
+            , ["/sysadmin", "s","https://reddit.com/r/sysadmin" ]
+            , ["/programmerhumor", "p","https://reddit.com/r/programmerhumor" ]
+            , ["/4chan", "4","https://reddit.com/r/4chan" ]
+            , ["/dccomics", "d","https://reddit.com/r/dccomics" ]
+        ]]
+      ]]
+    , ["/chan/", "c", [
+          ["/ck", "k", "https://4chan.org/ck"]
+        , ["/pro", "p", "http://desuchan.moe/pro/"]
+        , ["/tech/", "t", [
+              ["/laintech", "l" , "https://lainchan.org/tech/catalog.html"]
+            , ["/desutech", "d", "http://desuchan.moe/tech/"]
+            , ["/g", "g", "https://4chan.org/g"]
+            , ["/8", "8", "https://8ch.net/tech/catalog.html"]
+            , ["/silicon", "s", "https://sushigirl.us/silicon/catalog.html"]
+            , ["/endtech", "e", "https://endchan.xyz/tech/catalog.html"]
+            , ["/λ", "p", "https://lainchan.org/%CE%BB/catalog.html"]
+            , ["/finaltech", "f", "http://finalchan.net/t/catalog.html"]
+        ]]
+        , ["/music/", "m", [
+              ["/mu", "m", "http://aurorachan.net/mu/"]
+            , ["/tunes", "t", "https://sushigirl.us/tunes/catalog.html"]
+            , ["/media", "e", "https://uboachan.net/media/catalog.html"]
+        ]]
+        , ["/transport", "n", "http://boards.4chan.org/n"]
+        , ["/news", "z", "http://boards.4chan.org/news"]
+        , ["/off_topic/", "o", [
+              ["/ot", "o", "https://uboachan.net/ot/catalog.html"]
+            , ["/lounge", "l", "https://sushigirl.us/lounge/catalog.html"]
+        ]]
+        , ["/lain/","l", [
+              ["/mega", "m" , "https://lainchan.org/mega/catalog.html"]
+            , ["/cyb", "c", "https://lainchan.org/cyb/catalog.html"]
+            , ["/lit", "l", "https://lainchan.org/lit/catalog.html"]
+            , ["/art", "a", "https://lainchan.org/art/catalog.html"]
+        ]]
+        , ["/cyb/", "c", [
+              ["/htll", "h", "https://hightechlowlife.eu/board/"]
+            , ["/chiruno", "c", "https://chiru.no/cyber/catalog"]
+            , ["/8", "8", "https://8ch.net/cyber/catalog.html"]
+            , ["/final", "f", "http://finalchan.net/1984/"]
+            , ["/master", "m", "https://masterchan.org/cyb"]
+            , ["/end", "e", "https://endchan.xyz/overboard/"]
+            , ["/penumbranet", "p", "https://penumbra.network/overboard/"]
+        ]]
+      ]]
+    , ["/vola", "v", "https://volafile.io/r/kUFzLJ"]
+    , ["/tube/", "t", [
+          ["/zero", "0", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KR4Q-pC-7MLb_DoRmzYOCUw"]
+        , ["/one", "1", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KRZ43r5UVGNraUgvyPaUMBU"]
+        , ["/two", "2", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KQO4aHOqypivLefSFKq2vp1"]
+        , ["/three", "3", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KSeW6AmMmg3D4etDs5YeX8q"]
+        , ["/four", "4", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KTkhLF_MECKCA8DFWQIsGq7"]
+      ]]
+]
+special = "https://niles.xyz"
+
+
+
 def rjs(f, z):
     result = []
     result.append("if (" + str(ord(f[1].upper())) + " == x && z == '"+z+"') {")
@@ -41,67 +114,6 @@ def rhtml(f, z):
         result.append("</span>")
     result.append("<br />")
     return "\n".join(result)
-
-l = [
-      ["/r/", "r", [
-          ["/inbox", "i", "https://reddit.com/message/inbox"]
-        , ["/modmail", "m", "https://reddit.com/message/moderator"]
-        , ["/all", "a", "https://reddit.com/r/all"]
-        , ["/top", "t", "https://reddit.com/r/all/top?t=1h"]
-        , ["/shithole/","s", [
-              ["/default", "d", "https://reddit.com/r/freegamesonsteam"]
-            , ["/spam", "s", "https://www.reddit.com/r/FreeGamesOnSteam/about/spam/"]
-            , ["/reports", "r", "https://www.reddit.com/r/FreeGamesOnSteam/about/reports/"]
-            , ["/new", "n", "https://reddit.com/r/FreeGamesOnSteam/new"]
-        ]]
-        , ["/common/", "c", [
-              ["/seatte", "e","https://reddit.com/r/seattle" ]
-            , ["/sysadmin", "s","https://reddit.com/r/sysadmin" ]
-            , ["/programmerhumor", "p","https://reddit.com/r/programmerhumor" ]
-            , ["/4chan", "4","https://reddit.com/r/4chan" ]
-            , ["/dccomics", "d","https://reddit.com/r/dccomics" ]
-        ]]
-      ]]
-    , ["/chan/", "c", [
-          ["/ck", "k", "https://4chan.org/ck"]
-        , ["/pro", "p", "http://desuchan.moe/pro/"]
-        , ["/tech/", "t", [
-              ["/laintech", "l" , "https://lainchan.org/tech/catalog.html"]
-            , ["/desutech", "d", "http://desuchan.moe/tech/"]
-            , ["/g", "g", "https://4chan.org/g"]
-            , ["/8tech", "8", "https://8ch.net/tech/catalog.html"]
-            , ["/silicon", "s", "https://sushigirl.us/silicon/catalog.html"]
-            , ["/endtech", "e", "https://endchan.xyz/tech/catalog.html"]
-            , ["/λ", "p", "https://lainchan.org/%CE%BB/catalog.html"]
-        ]]
-        , ["/music/", "m", [
-              ["/mu", "m", "http://aurorachan.net/mu/"]
-            , ["/tunes", "t", "https://sushigirl.us/tunes/catalog.html"]
-            , ["/media", "e", "https://uboachan.net/media/catalog.html"]
-        ]]
-        , ["/transport", "n", "http://boards.4chan.org/n"]
-        , ["/news", "z", "http://boards.4chan.org/news"]
-        , ["/off_topic/", "o", [
-              ["/ot", "o", "https://uboachan.net/ot/catalog.html"]
-            , ["/lounge", "l", "https://sushigirl.us/lounge/catalog.html"]
-        ]]
-        , ["/lain/","l", [
-              ["/mega", "m" , "https://lainchan.org/mega/catalog.html"]
-            , ["/cyb", "c", "https://lainchan.org/cyb/catalog.html"]
-            , ["/lit", "l", "https://lainchan.org/lit/catalog.html"]
-            , ["/art", "a", "https://lainchan.org/art/catalog.html"]
-        ]]
-      ]]
-    , ["/vola", "v", "https://volafile.io/r/kUFzLJ"]
-    , ["/tube/", "t", [
-          ["/zero", "0", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KR4Q-pC-7MLb_DoRmzYOCUw"]
-        , ["/one", "1", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KRZ43r5UVGNraUgvyPaUMBU"]
-        , ["/two", "2", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KQO4aHOqypivLefSFKq2vp1"]
-        , ["/three", "3", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KSeW6AmMmg3D4etDs5YeX8q"]
-        , ["/four", "4", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KTkhLF_MECKCA8DFWQIsGq7"]
-      ]]
-]
-special = "https://niles.xyz"
 
 master = ["""<!doctype html>
 <!--
