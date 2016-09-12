@@ -3,7 +3,7 @@ l = [
           ["/inbox", "i", "https://reddit.com/message/inbox"]
         , ["/modmail", "m", "https://reddit.com/message/moderator"]
         , ["/all", "a", "https://reddit.com/r/all"]
-        , ["/top", "t", "https://reddit.com/r/all/top?t=1h"]
+        , ["/top", "t", "https://www.reddit.com/r/all/top?sort=top&t=hour"]
         , ["/shithole/","s", [
               ["/default", "d", "https://reddit.com/r/freegamesonsteam"]
             , ["/spam", "s", "https://www.reddit.com/r/FreeGamesOnSteam/about/spam/"]
@@ -20,6 +20,7 @@ l = [
       ]]
     , ["/chan/", "c", [
           ["/ck", "k", "https://4chan.org/ck"]
+        , ["/gd", "g", "https://4chan.org/gd"]
         , ["/pro", "p", "http://desuchan.moe/pro/"]
         , ["/tech/", "t", [
               ["/laintech", "l" , "https://lainchan.org/tech/catalog.html"]
