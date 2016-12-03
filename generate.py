@@ -16,6 +16,8 @@ l = [
             , ["/programmerhumor", "p","https://reddit.com/r/programmerhumor" ]
             , ["/4chan", "4","https://reddit.com/r/4chan" ]
             , ["/dccomics", "d","https://reddit.com/r/dccomics" ]
+            , ["/dumb memes", "a","https://reddit.com/r/anime_irl" ]
+            , ["/globaloffensive", "g","https://reddit.com/r/globaloffensive" ]
         ]]
       ]]
     , ["/chan/", "c", [
@@ -43,12 +45,7 @@ l = [
               ["/ot", "o", "https://uboachan.net/ot/catalog.html"]
             , ["/lounge", "l", "https://sushigirl.us/lounge/catalog.html"]
         ]]
-        , ["/lain/","l", [
-              ["/mega", "m" , "https://lainchan.org/mega/catalog.html"]
-            , ["/cyb", "c", "https://lainchan.org/cyb/catalog.html"]
-            , ["/lit", "l", "https://lainchan.org/lit/catalog.html"]
-            , ["/art", "a", "https://lainchan.org/art/catalog.html"]
-        ]]
+        , ["/lain", "l" , "https://lainchan.org/mega/catalog.html"]
         , ["/cyb/", "c", [
               ["/htll", "h", "https://hightechlowlife.eu/board/"]
             , ["/chiruno", "c", "https://chiru.no/cyber/catalog"]
@@ -59,7 +56,6 @@ l = [
             , ["/penumbranet", "p", "https://penumbra.network/overboard/"]
         ]]
       ]]
-    , ["/vola", "v", "https://volafile.io/r/kUFzLJ"]
     , ["/tube/", "t", [
           ["/zero", "0", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KR4Q-pC-7MLb_DoRmzYOCUw"]
         , ["/one", "1", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KRZ43r5UVGNraUgvyPaUMBU"]
@@ -67,7 +63,26 @@ l = [
         , ["/three", "3", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KSeW6AmMmg3D4etDs5YeX8q"]
         , ["/four", "4", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KTkhLF_MECKCA8DFWQIsGq7"]
         , ["/favorites", "f", "https://www.youtube.com/playlist?list=FLRkKd3ko9mg_WdWoilM654A"]
+        , ["/watchlist", "w", "https://www.youtube.com/playlist?list=WL"]
       ]]
+    , ["/other/", "o", [
+          ["/mebious/", "m", [
+              ["/co_uk", "c", "https://mebious.co.uk/"]
+            , ["/us", "u", "https://mebio.us/"]
+            , ["/neocities", "n", "http://mebious.neocities.org/"]
+        ]]
+        , ["/vola", "v", "https://volafile.io/r/kUFzLJ"]
+        , ["/Шрифты", "w", "https://vk.com/topic-50911295_28400542"]
+        , ["/scaneye", "s", "https://scaneye.net/"]
+        , ["/codewars", "c", "https://codewars.com/dashboard"]
+        , ["/filechef", "f", "http://filechef.com"]
+        , ["/personal/", "p", [
+              ["/shmibs", "s", "https://shmibbles.me"]
+            , ["/fauux", "f", "https://fauux.neocities.org"]
+            , ["/m0nst3rs", "m", "https://m0nst3r.neocities.org/"]
+            , ["/ijk", "i", "https://ijk.neocities.org"]
+        ]]
+    ]]
 ]
 special = "https://niles.xyz"
 
