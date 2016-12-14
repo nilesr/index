@@ -1,7 +1,7 @@
 l = [
       ["/r/", "r", [
           ["/inbox", "i", "https://reddit.com/message/inbox"]
-        , ["/modmail", "m", "https://reddit.com/message/moderator"]
+        , ["/modmail", "m", "https://mod.reddit.com/mail/all"]
         , ["/all", "a", "https://reddit.com/r/all"]
         , ["/top", "t", "https://www.reddit.com/r/all/top?sort=top&t=hour"]
         , ["/shithole/","s", [
@@ -118,12 +118,13 @@ def rjs2(f, z):
 
 def rhtml(f, z):
     result = []
-    href = []
-    if type(f[2]) == str:
-        href = ["href='"+f[2]+"'"]
+    href = ""
+    # no longer needed because the onclick handler redirects the page
+    # if type(f[2]) == str:
+        # href = "href='"+f[2]+"'"
     if len(z) > 0:
-        href = ["style='display: none;'"]
-    result.append(''.join(["<a class='"+z+"' id='",z,f[1],"' ",*href," onclick='collapse(\""+z+"\"); key({keyCode:"+str(ord(f[1].upper()))+"})'>", f[0], "</a>"]))
+        href = "style='display: none;'"
+    result.append(''.join(["<a class='"+z+"' id='",z,f[1],"' ",href," onclick='collapse(\""+z+"\"); key({keyCode:"+str(ord(f[1].upper()))+"})'>", f[0], "</a>"]))
     if type(f[2]) != str:
         result.append("<span style='position: absolute; left: 200px; top: 0px;'>")
         for l in f[2]:
