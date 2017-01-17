@@ -85,6 +85,7 @@ l = [
             , ["/m0nst3rs", "m", "https://m0nst3r.neocities.org/"]
             , ["/ijk", "i", "https://ijk.neocities.org"]
         ]]
+        , ["/nntp", "n", "https://2hu-ch.org/catalog-overchan.technology.html"]
     ]]
 ]
 special = "https://niles.xyz"
