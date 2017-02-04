@@ -85,6 +85,11 @@ l = [
             , ["/m0nst3rs", "m", "https://m0nst3r.neocities.org/"]
             , ["/ijk", "i", "https://ijk.neocities.org"]
         ]]
+        , ["/books/", "b", [
+              ["/ebook-dl", "e", "https://ebook-dl.com/"]
+            , ["/it-ebooks", "i", "http://it-ebooks.info/"]
+            , ["/bookzz", "z", "https://bookzz.org/"]
+        ]]
         , ["/nntp", "n", "https://2hu-ch.org/catalog-overchan.technology.html"]
     ]]
 ]
