@@ -140,6 +140,10 @@ def rjs2(f, z):
         if type(f[2]) == list:
             for l in f[2]:
                 result.append(rjs2(l, z + f[1]))
+        elif f[2] == 0:
+            #result.append("document.getElementById(z + '"+ f[1] +"' + 'i').value = ''")
+            # replaced with the onBlur thing
+            pass
     return "\n".join(result)
 
 def rhtml(f, z):
@@ -165,7 +169,7 @@ def rhtml(f, z):
 def rsearch(f, z):
     result = []
     result.append(''.join(["<form class='"+z+"' id='",z,f[1],"' action='javascript:doSearch(\"",f[3],"\", \"",z,f[1],"\")' style='display: none;'>"]))
-    result.append("<input type='text' name='input' id='"+z+f[1]+"i"+"' />")
+    result.append("<input onblur='this.value = \"\";' type='text' name='input' id='"+z+f[1]+"i"+"' />")
     result.append("</form>")
     return "\n".join(result)
 

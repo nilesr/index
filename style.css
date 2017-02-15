@@ -35,3 +35,14 @@ a:hover {
 	padding: 5px;
 	text-align: right;
 }
+
+input {
+	font-size: 1.5em;
+	appearance: none;
+	border: solid 1px #ddd;
+	padding: 10px;
+	margin-top: 100px; /* dirty hack, can be removed */
+	text-align: center;
+	box-shadow: 0 0 10px 1px #27454F;
+	border: solid 4px #27454F;
+}
