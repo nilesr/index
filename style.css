@@ -38,7 +38,7 @@ a:hover {
 
 input {
 	font-size: 1.5em;
-	appearance: none;
+	outline: none;
 	border: solid 1px #ddd;
 	padding: 10px;
 	margin-top: 100px; /* dirty hack, can be removed */
