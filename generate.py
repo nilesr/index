@@ -1,4 +1,5 @@
 l = [
+      #["/search?", "s", 0, "https://searx.me/search?q=%s"]
       ["/r/", "r", [
           ["/inbox", "i", "https://reddit.com/message/inbox"]
         , ["/modmail", "m", "https://mod.reddit.com/mail/all"]
@@ -21,6 +22,8 @@ l = [
             , ["/osu", "o","https://reddit.com/r/osugame" ]
             , ["/tf2", "t","https://reddit.com/r/tf2" ]
         ]]
+        , ["/r?", "r", 0, "https://reddit.com/r/%s"]
+        , ["/u?", "u", 0, "https://reddit.com/u/%s"]
       ]]
     , ["/chan/", "c", [
           ["/ck", "k", "https://4chan.org/ck"]
@@ -67,6 +70,7 @@ l = [
         , ["/four", "4", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KTkhLF_MECKCA8DFWQIsGq7"]
         , ["/favorites", "f", "https://www.youtube.com/playlist?list=FLRkKd3ko9mg_WdWoilM654A"]
         , ["/watchlist", "w", "https://www.youtube.com/playlist?list=WL"]
+        , ["/search?", "s", 0, "https://www.youtube.com/results?search_query=%s"]
       ]]
     , ["/other/", "o", [
           ["/mebious/", "m", [
@@ -109,8 +113,20 @@ def rjs(f, z):
         result.append("for (var i = 0; i < x.length; i++) { x[i].style.display = 'inline-block'; }")
         result.append("var x = document.getElementById(z);")
         result.append("x.onclick = function() { collapse('" + str(z) + "');}")
+    if f[2] == 0:
+        result.append("var x = document.getElementById(z + '"+f[1]+"' + 'i');");
+        # result.append("x.value = '';")
+        result.append("x.focus();");
+        # result.append("var x = document.getElementById(z + '"+f[1]+"');");
+        # result.append("x.innerHTML = '';")
+        # result.append("var tempform = document.createElement('form');");
+        # result.append("var tempinput = document.createElement('input');")
+        # result.append("tempform.appendChild(tempinput); x.appendChild(tempform);")
+        # result.append("tempinput.focus();")
+        # result.append("tempinput.value = '';")
+        result.append("event.preventDefault();") # this was the magic spice
     result.append("}")
-    if type(f[2]) != str:
+    if type(f[2]) == list:
         for l in f[2]:
             result.append(rjs(l, z + f[1]))
     return "\n".join(result)
@@ -121,8 +137,9 @@ def rjs2(f, z):
         result.append("if (z == '"+z+"') {")
         result.append("document.getElementById(z+'" + f[1] + "').onclick = function() { if (z != \""+z+"\") { collapse(\""+z+"\") } key({keyCode:" + str(ord(f[1].upper())) + " }) };")
         result.append("}")
-        for l in f[2]:
-            result.append(rjs2(l, z + f[1]))
+        if type(f[2]) == list:
+            for l in f[2]:
+                result.append(rjs2(l, z + f[1]))
     return "\n".join(result)
 
 def rhtml(f, z):
@@ -136,11 +153,22 @@ def rhtml(f, z):
     result.append(''.join(["<a class='"+z+"' id='",z,f[1],"' ",href," onclick='collapse(\""+z+"\"); key({keyCode:"+str(ord(f[1].upper()))+"})'>", f[0], "</a>"]))
     if type(f[2]) != str:
         result.append("<span style='position: absolute; left: 200px; top: 0px;'>")
-        for l in f[2]:
-            result.append(rhtml(l, z + f[1]))
+        if type(f[2]) == list:
+            for l in f[2]:
+                result.append(rhtml(l, z + f[1]))
+        elif f[2] == 0:
+            result.append(rsearch(f, z + f[1]))
         result.append("</span>")
     result.append("<br />")
     return "\n".join(result)
+
+def rsearch(f, z):
+    result = []
+    result.append(''.join(["<form class='"+z+"' id='",z,f[1],"' action='javascript:doSearch(\"",f[3],"\", \"",z,f[1],"\")' style='display: none;'>"]))
+    result.append("<input type='text' name='input' id='"+z+f[1]+"i"+"' />")
+    result.append("</form>")
+    return "\n".join(result)
+
 
 master = ["""<!doctype html>
 <!--
@@ -159,6 +187,11 @@ master.append("""
 var z = "";
 var ctrl = false;
 var shift = false;
+function doSearch(toAddress, inputSelector) {
+    var s = document.getElementById(inputSelector + 'i').value;
+    //alert(toAddress);
+    document.location = toAddress.replace("%s", s);
+}
 function pi() {
     if (ctrl && shift) {
         window.location = '""" + special + """';
@@ -211,6 +244,7 @@ master.append("""
 for f in l:
     master.append(rjs(f, ""))
 master.append("""
+        return true;
 }
 document.onkeydown = key;
 document.onkeyup = keyup;
