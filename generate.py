@@ -157,7 +157,7 @@ def rhtml(f, z):
         href = "style='display: none;'"
     result.append(''.join(["<a class='"+z+"' id='",z,f[1],"' ",href," onclick='collapse(\""+z+"\"); key({keyCode:"+str(ord(f[1].upper()))+"})'>", f[0], "</a>"]))
     if type(f[2]) != str:
-        result.append("<span style='position: absolute; left: 200px; top: 0px; width: 100%;'>")
+        result.append("<span style='position: absolute; left: 200px; top: 0px; width: 300px;'>")
         if type(f[2]) == list:
             for l in f[2]:
                 result.append(rhtml(l, z + f[1]))
