@@ -22,8 +22,8 @@ l = [
             , ["/osu", "o","https://reddit.com/r/osugame" ]
             , ["/tf2", "t","https://reddit.com/r/tf2" ]
         ]]
-        , ["/r?", "r", 0, "https://reddit.com/r/%s"]
-        , ["/u?", "u", 0, "https://reddit.com/u/%s"]
+        , ["/r?", "r", 0, "https://reddit.com/r/%s", "reddit.com/r/"]
+        , ["/u?", "u", 0, "https://reddit.com/u/%s", "reddit.com/u/"]
       ]]
     , ["/chan/", "c", [
           ["/ck", "k", "https://4chan.org/ck"]
@@ -70,7 +70,7 @@ l = [
         , ["/four", "4", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KTkhLF_MECKCA8DFWQIsGq7"]
         , ["/favorites", "f", "https://www.youtube.com/playlist?list=FLRkKd3ko9mg_WdWoilM654A"]
         , ["/watchlist", "w", "https://www.youtube.com/playlist?list=WL"]
-        , ["/search?", "s", 0, "https://www.youtube.com/results?search_query=%s"]
+        , ["/search?", "s", 0, "https://www.youtube.com/results?search_query=%s", "Search Youtube"]
       ]]
     , ["/other/", "o", [
           ["/mebious/", "m", [
@@ -96,6 +96,7 @@ l = [
         ]]
         , ["/nntp", "n", "https://2hu-ch.org/catalog-overchan.technology.html"]
     ]]
+    , ["/wikipedia?", "w", 0, "https://en.wikipedia.org/wiki/%s", "Search Wikipedia"]
 ]
 special = "https://niles.xyz"
 
@@ -168,8 +169,11 @@ def rhtml(f, z):
 
 def rsearch(f, z):
     result = []
+    default = []
+    if len(f) > 4:
+        default = ["placeholder='", f[4], "'"]
     result.append(''.join(["<form class='"+z+"' id='",z,f[1],"' action='javascript:doSearch(\"",f[3],"\", \"",z,f[1],"\")' style='display: none;'>"]))
-    result.append("<input onblur='this.value = \"\";' type='text' name='input' id='"+z+f[1]+"i"+"' />")
+    result.append("<input onblur='this.value = \"\";' type='text' name='input' id='"+z+f[1]+"i"+"' " + "".join(default) + " />")
     result.append("</form>")
     return "\n".join(result)
 
