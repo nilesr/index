@@ -52,14 +52,14 @@ l = [
         ]]
         , ["/lain", "l" , "https://lainchan.org/mega/catalog.html"]
         , ["/cyb/", "c", [
-              ["/htll", "h", "https://hightechlowlife.eu/board/"]
-            , ["/chiruno", "c", "https://chiru.no/cyber/catalog"]
+              ["/htll", "h", "https://hightechlowlife.eu/board/"] # down
+            , ["/chiruno", "c", "https://chiru.no/cyber/"]
             , ["/8", "8", "https://8ch.net/cyber/catalog.html"]
             , ["/final", "f", "https://finalchan.net/1984/"]
             , ["/master", "m", "https://masterchan.org/cyb"]
             , ["/end", "e", "https://endchan.xyz/overboard/"]
-            , ["/penumbranet", "p", "https://penumbra.network/overboard/"]
-            , ["/unsafe", "u", "https://jinteki.industries/"] # formerly cyberlife.unsafe.space
+            , ["/penumbranet", "p", "https://penumbra.network/overboard/"] # down
+            , ["/unsafe", "u", "https://jinteki.industries/"] # formerly cyberlife.unsafe.space, down
         ]]
       ]]
     , ["/tube/", "t", [
