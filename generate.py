@@ -88,6 +88,7 @@ l = [
             , ["/fauux", "f", "https://fauux.neocities.org"]
             , ["/m0nst3rs", "m", "https://m0nst3r.neocities.org/"]
             , ["/ijk", "i", "https://ijk.neocities.org"]
+            , ["/ovibos", "o", "https://ovibos.me"]
         ]]
         , ["/books/", "b", [
               ["/ebook-dl", "e", "https://ebook-dl.com/"]
