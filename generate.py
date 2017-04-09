@@ -61,6 +61,10 @@ l = [
             , ["/penumbranet", "p", "https://penumbra.network/overboard/"] # down
             , ["/unsafe", "u", "https://jinteki.industries/"] # formerly cyberlife.unsafe.space, down
         ]]
+        , ["/dynu/", "d", [
+              ["/letterbox", "l", "http://afternoon.dynu.com/letterbox.html"]
+            , ["/photoboard", "p", "http://afternoon.dynu.com/photo.html"]
+        ]]
       ]]
     , ["/tube/", "t", [
           ["/zero", "0", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KR4Q-pC-7MLb_DoRmzYOCUw"]
