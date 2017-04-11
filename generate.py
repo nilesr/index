@@ -95,9 +95,10 @@ l = [
             , ["/ovibos", "o", "https://ovibos.me"]
         ]]
         , ["/books/", "b", [
-              ["/ebook-dl", "e", "https://ebook-dl.com/"]
+              ["/ebook-dl", "e", "http://www.wowebook.org/"]
             , ["/it-ebooks", "i", "http://it-ebooks.info/"]
             , ["/bookzz", "z", "https://bookzz.org/"]
+            , ["/bookdl", "d", "https://bookdl.com/"]
         ]]
         , ["/nntp", "n", "https://2hu-ch.org/catalog-overchan.technology.html"]
     ]]
