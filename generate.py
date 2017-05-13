@@ -50,7 +50,13 @@ l = [
               ["/ot", "o", "https://uboachan.net/ot/catalog.html"]
             , ["/lounge", "l", "https://sushigirl.us/lounge/catalog.html"]
         ]]
-        , ["/lain", "l" , "https://lainchan.org/mega/catalog.html"]
+        , ["/lain/", "l" , [
+              ["/mega", "m", "https://lainchan.org/mega/catalog.html"]
+            , ["/tech", "t", "https://lainchan.org/tech/catalog.html"]
+            , ["/lambda", "l", "https://lainchan.org/lambda/catalog.html"]
+            , ["/sec", "s", "https://lainchan.org/sec/catalog.html"]
+            , ["/reports", "r", "https://lainchan.org/mod.php?/reports"]
+        ]]
         , ["/cyb/", "c", [
               ["/htll", "h", "https://hightechlowlife.eu/board/"] # down
             , ["/chiruno", "c", "https://chiru.no/cyber/"]
@@ -81,6 +87,7 @@ l = [
               ["/co_uk", "c", "https://mebious.co.uk/"]
             , ["/us", "u", "https://mebio.us/"]
             , ["/neocities", "n", "https://mebious.neocities.org/"]
+            , ["/mobi", "n", "https://mebious.mobi/"]
         ]]
         , ["/vola", "v", "https://volafile.io/r/kUFzLJ"]
         , ["/Шрифты", "w", "https://vk.com/topic-50911295_28400542"]
