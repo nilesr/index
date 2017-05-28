@@ -15,7 +15,7 @@ l = [
               ["/seatte", "e","https://reddit.com/r/seattle" ]
             , ["/sysadmin", "s","https://reddit.com/r/sysadmin" ]
             , ["/programmerhumor", "p","https://reddit.com/r/programmerhumor" ]
-            , ["/4chan", "4","https://reddit.com/r/4chan" ]
+            # , ["/4chan", "4","https://reddit.com/r/4chan" ]
             , ["/dccomics", "d","https://reddit.com/r/dccomics" ]
             , ["/dumb memes", "a","https://reddit.com/r/anime_irl" ]
             , ["/globaloffensive", "g","https://reddit.com/r/globaloffensive" ]
