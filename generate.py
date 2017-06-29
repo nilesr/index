@@ -31,41 +31,49 @@ l = [
         , ["/pro", "p", "https://desuchan.moe/pro/"]
         , ["/tech/", "t", [
               ["/laintech", "l" , "https://lainchan.org/tech/catalog.html"]
-            , ["/desutech", "d", "https://desuchan.moe/tech/"]
+            # , ["/desutech", "d", "https://desuchan.moe/tech/"] # dead, one post every three weeks, expired ssl cert
             , ["/g", "g", "https://4chan.org/g"]
             , ["/8", "8", "https://8ch.net/tech/catalog.html"]
             , ["/silicon", "s", "https://sushigirl.us/silicon/catalog.html"]
             , ["/endtech", "e", "https://endchan.xyz/tech/catalog.html"]
             , ["/λ", "p", "https://lainchan.org/%CE%BB/catalog.html"]
             , ["/finaltech", "f", "https://finalchan.net/t/catalog.html"]
+            , ["/danger/tech", "d", "https://boards.dangeru.us/tech/"]
         ]]
         , ["/music/", "m", [
               ["/mu", "m", "https://aurorachan.net/mu/"]
             , ["/tunes", "t", "https://sushigirl.us/tunes/catalog.html"]
             , ["/media", "e", "https://uboachan.net/media/catalog.html"]
+            , ["/danger/mu", "d", "https://boards.dangeru.us/mu/"]
         ]]
         , ["/transport", "n", "https://boards.4chan.org/n"]
-        , ["/news", "z", "https://boards.4chan.org/news"]
+        , ["/news/", "z", [
+              ["/4", "4", "https://boards.4chan.org/news"]
+            , ["/danger/new", "d", "https://boards.dangeru.us/new/"]
+        ]]
         , ["/off_topic/", "o", [
               ["/ot", "o", "https://uboachan.net/ot/catalog.html"]
             , ["/lounge", "l", "https://sushigirl.us/lounge/catalog.html"]
+            , ["/danger/u", "d", "https://boards.dangeru.us/u/"]
         ]]
         , ["/lain/", "l" , [
               ["/mega", "m", "https://lainchan.org/mega/catalog.html"]
             , ["/tech", "t", "https://lainchan.org/tech/catalog.html"]
             , ["/lambda", "l", "https://lainchan.org/lambda/catalog.html"]
             , ["/sec", "s", "https://lainchan.org/sec/catalog.html"]
+            , ["/mod", "o", "https://lainchan.org/mod.php?/mod/"]
             , ["/reports", "r", "https://lainchan.org/mod.php?/reports"]
         ]]
         , ["/cyb/", "c", [
-              ["/htll", "h", "https://hightechlowlife.eu/board/"] # down
-            , ["/chiruno", "c", "https://chiru.no/cyber/"]
+              #   ["/htll", "h", "https://hightechlowlife.eu/board/"] # down
+              ["/chiruno", "c", "https://chiru.no/cyber/"]
             , ["/8", "8", "https://8ch.net/cyber/catalog.html"]
             , ["/final", "f", "https://finalchan.net/1984/"]
             , ["/master", "m", "https://masterchan.org/cyb"]
             , ["/end", "e", "https://endchan.xyz/overboard/"]
-            , ["/penumbranet", "p", "https://penumbra.network/overboard/"] # down
-            , ["/unsafe", "u", "https://jinteki.industries/"] # formerly cyberlife.unsafe.space, down
+            # , ["/penumbranet", "p", "https://penumbra.network/overboard/"] # down
+            # , ["/unsafe", "u", "https://jinteki.industries/"] # formerly cyberlife.unsafe.space, down
+            , ["/danger/u", "d", "https://boards.dangeru.us/cyb/"]
         ]]
         , ["/dynu/", "d", [
               ["/letterbox", "l", "http://afternoon.dynu.com/letterbox.html"]
