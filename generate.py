@@ -279,6 +279,7 @@ document.onkeydown = key;
 document.onkeyup = keyup;
 
 var ol = function ol() {
+    document.getElementById("today").innerHTML = ""; // clear before refreshing
     request = new XMLHttpRequest();
     request.onreadystatechange = function() {
         if(request.readyState === 4) {
@@ -299,6 +300,7 @@ var ol = function ol() {
     }
     request.open('GET', 'http://127.0.0.1/today', true);
     request.send(null);
+    setTimeout(ol, 60*1000); // refresh every minute
 }
 </script></head>""")
 master.append("""<body class="" onLoad='ol();'><div id="content">""")
