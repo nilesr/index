@@ -277,10 +277,33 @@ master.append("""
 }
 document.onkeydown = key;
 document.onkeyup = keyup;
+
+var ol = function ol() {
+    request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if(request.readyState === 4) {
+            if(request.status === 200) {
+                var messages = request.responseText.split("\\n");
+                var div = document.getElementById("today")
+                for (var i = 0; i < messages.length; i++) {
+                    if (messages[i].trim().length == 0) continue;
+                    var span = document.createElement("span")
+                    span.classList.add("message")
+	                span.style.marginTop = (5 * i).toString() + "px";
+                    span.innerText = messages[i]
+                    div.appendChild(span);
+                    div.appendChild(document.createElement("br"));
+                }
+            }
+        }
+    }
+    request.open('GET', 'http://127.0.0.1/today', true);
+    request.send(null);
+}
 </script></head>""")
-master.append("""<body class=""><div id="content">""")
+master.append("""<body class="" onLoad='ol();'><div id="content">""")
 for f in l:
     master.append(rhtml(f, ""))
-master.append("""</div><div id="pi" onclick='pi();'>π</div></body></html>""")
+master.append("""</div><div id="today"></div><div id="pi" onclick='pi();'>π</div></body></html>""")
 master = "\n".join(master)
 print(master)
