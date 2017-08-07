@@ -95,7 +95,7 @@ l = [
               ["/co_uk", "c", "https://mebious.co.uk/"]
             , ["/us", "u", "https://mebio.us/"]
             , ["/neocities", "n", "https://mebious.neocities.org/"]
-            , ["/mobi", "n", "https://mebious.mobi/"]
+            , ["/mobi", "m", "https://mebious.mobi/"]
         ]]
         , ["/vola", "v", "https://volafile.io/r/kUFzLJ"]
         , ["/Шрифты", "w", "https://vk.com/topic-50911295_28400542"]
