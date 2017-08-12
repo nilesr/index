@@ -94,15 +94,16 @@ def get_time(c): return c[1]
 ### Actual commands
 
 classes = [
-      [["C++", today(9, 5)], ["Linear Algebra", today(16, 00)]] # monday is zero
-    , [["Engineering", today(8, 00)], ["English", today(12, 30)]]
-    , [["C++", today(9, 5)], ["Linear Algebra", today(16, 00)]]
-    , [["Engineering", today(8, 00)], ["English", today(12, 30)]]
-    , [["Linear Algebra", today(16, 00)]] # friday
+      [["Multivar", today(10, 10)], ["Physics", today(11, 15)], ["Physics again", today(12, 20)]] # monday is zero
+    , [["2505", today(14, 00)], ["Discrete", today(15, 30)], ["Seminar", today(17, 00)]]
+    , [["Multivar", today(10, 10)], ["Physics", today(12, 20)], ["Lab", today(14, 30)]]
+    , [["2505", today(14, 00)], ["Discrete", today(15, 30)]]
+    , [["Multivar", today(10, 10)], ["Physics", today(12, 20)]] # friday
     , []
     , [] # sunday
 ]
 
+# TODO Update
 alarms = [
       [today(8, 15), today(15, 30)] # monday
     , [today(7, 15), today(12, 00)]
@@ -180,7 +181,9 @@ messages = [
 ### Does the actual printing
 
 m = "\n".join([k[1] for k in messages])
-# tts = gtts.gTTS(m)
-# tts.save("/tmp/temp.mp3")
-# subprocess.call(["mpv", "/tmp/temp.mp3"])
+
 print(m)
+if voice:
+    tts = gtts.gTTS(m)
+    tts.save("/tmp/temp.mp3")
+    subprocess.call(["mpv", "/tmp/temp.mp3"])
