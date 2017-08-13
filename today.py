@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-import time, datetime, gtts, yweather, yahoo_finance, subprocess, os, json, urllib.request
+import time, datetime, yweather, yahoo_finance, subprocess, os, json, urllib.request
 day_of_week = time.localtime().tm_wday
 now = time.time()
 #now = time.time() + 60*28 + 60*60*13
@@ -184,6 +184,7 @@ m = "\n".join([k[1] for k in messages])
 
 print(m)
 if voice:
+    import gtts
     tts = gtts.gTTS(m)
     tts.save("/tmp/temp.mp3")
     subprocess.call(["mpv", "/tmp/temp.mp3"])
