@@ -73,7 +73,8 @@ l = [
             , ["/end", "e", "https://endchan.xyz/overboard/"]
             # , ["/penumbranet", "p", "https://penumbra.network/overboard/"] # down
             # , ["/unsafe", "u", "https://jinteki.industries/"] # formerly cyberlife.unsafe.space, down
-            , ["/danger/u", "d", "https://boards.dangeru.us/cyb/"]
+            , ["/danger/cyb", "d", "https://boards.dangeru.us/cyb/"]
+            , ["/danger/lain", "l", "https://boards.dangeru.us/lain/"]
         ]]
         , ["/dynu/", "d", [
               ["/letterbox", "l", "http://afternoon.dynu.com/letterbox.html"]
