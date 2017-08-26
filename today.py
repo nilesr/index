@@ -105,11 +105,11 @@ classes = [
 
 # TODO Update
 alarms = [
-      [today(8, 15), today(15, 30)] # monday
-    , [today(7, 15), today(12, 00)]
-    , [today(8, 15), today(15, 30)]
-    , [today(7, 15), today(12, 00)]
-    , [today(15,30)] # friday
+      [today(9, 30), today(11, 5), today(12, 10)] # monday
+    , [today(13, 30), today(15, 20), today(16, 50)]
+    , [today(9, 30), today(11, 50), today(14, 00)]
+    , [today(13, 30), today(15, 20)]
+    , [today(9, 30), today(11, 50)] # friday
     , []
     , [] # sunday
 ]
