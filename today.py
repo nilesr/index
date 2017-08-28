@@ -104,11 +104,11 @@ classes = [
 ]
 
 alarms = [
-      [today(9, 30), today(11, 5), today(12, 10)] # monday
+      [today(9, 40), today(11, 5), today(12, 10)] # monday
     , [today(13, 30), today(15, 20), today(16, 50)]
-    , [today(9, 30), today(11, 50), today(14, 00)]
+    , [today(9, 40), today(11, 50), today(14, 00)]
     , [today(13, 30), today(15, 20)]
-    , [today(9, 30), today(11, 50)] # friday
+    , [today(9, 40), today(11, 50)] # friday
     , []
     , [] # sunday
 ]
