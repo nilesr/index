@@ -76,9 +76,17 @@ l = [
             , ["/danger/cyb", "d", "https://boards.dangeru.us/cyb/"]
             , ["/danger/lain", "l", "https://boards.dangeru.us/lain/"]
         ]]
-        , ["/dynu/", "d", [
+        , ["/dynu/", "y", [
               ["/letterbox", "l", "http://afternoon.dynu.com/letterbox.html"]
             , ["/photoboard", "p", "http://afternoon.dynu.com/photo.html"]
+        ]]
+        , ["/dangeru/", "d", [
+              ["/login", "m", "https://dangeru.us/mod"]
+            , ["/staff", "s", "https://dangeru.us/staff"]
+            , ["/u", "u", "https://dangeru.us/u"]
+            , ["/test", "t", "https://dangeru.us/test"]
+            , ["/lain", "l", "https://dangeru.us/lain"]
+            , ["/tech", "e", "https://dangeru.us/tech"]
         ]]
       ]]
     , ["/tube/", "t", [
