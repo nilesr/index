@@ -81,7 +81,8 @@ l = [
             , ["/photoboard", "p", "http://afternoon.dynu.com/photo.html"]
         ]]
         , ["/dangeru/", "d", [
-              ["/login", "m", "https://dangeru.us/mod"]
+              ["/all", "a", "https://dangeru.us/all"]
+            , ["/login", "m", "https://dangeru.us/mod"]
             , ["/staff", "s", "https://dangeru.us/staff"]
             , ["/u", "u", "https://dangeru.us/u"]
             , ["/test", "t", "https://dangeru.us/test"]
