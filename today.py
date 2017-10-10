@@ -95,9 +95,9 @@ def get_time(c): return c[1]
 
 classes = [
       [["Multivar", today(10, 10)], ["Physics", today(11, 15)], ["Physics again", today(12, 20)]] # monday is zero
-    , [["2505", today(14, 00)], ["Discrete", today(15, 30)], ["Seminar", today(17, 00)]]
+    , [["DSA", today(12, 30)], ["2505", today(14, 00)], ["Discrete", today(15, 30)], ["Seminar", today(17, 00)]]
     , [["Multivar", today(10, 10)], ["Physics", today(12, 20)], ["Lab", today(14, 30)]]
-    , [["2505", today(14, 00)], ["Discrete", today(15, 30)]]
+    , [["DSA", today(12, 30)], ["2505", today(14, 00)], ["Discrete", today(15, 30)]]
     , [["Multivar", today(10, 10)], ["Physics", today(12, 20)]] # friday
     , []
     , [] # sunday
@@ -105,9 +105,9 @@ classes = [
 
 alarms = [
       [today(9, 40), today(11, 5), today(12, 10)] # monday
-    , [today(13, 30), today(15, 20), today(16, 50)]
+    , [today(12, 0), today(13, 30), today(15, 20), today(16, 50)]
     , [today(9, 40), today(11, 50), today(14, 00)]
-    , [today(13, 30), today(15, 20)]
+    , [today(12, 0), today(13, 30), today(15, 20)]
     , [today(9, 40), today(11, 50)] # friday
     , []
     , [] # sunday

@@ -128,6 +128,7 @@ l = [
         , ["/nntp", "n", "https://2hu-ch.org/catalog-overchan.technology.html"]
     ]]
     , ["/wikipedia?", "w", 0, "https://en.wikipedia.org/wiki/%s", "Search Wikipedia"]
+    , ["/voice", "v", "https://voice.google.com/u/0/messages"]
 ]
 special = "https://niles.xyz"
 
