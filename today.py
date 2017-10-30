@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 import time, datetime, yweather, yahoo_finance, subprocess, os, json, urllib.request
 day_of_week = time.localtime().tm_wday
 now = time.time()

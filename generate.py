@@ -1,5 +1,4 @@
 l = [
-      #["/search?", "s", 0, "https://searx.me/search?q=%s"]
       ["/r/", "r", [
           ["/inbox", "i", "https://reddit.com/message/inbox"]
         , ["/modmail", "m", "https://mod.reddit.com/mail/all"]
@@ -15,10 +14,10 @@ l = [
               ["/seatte", "e","https://reddit.com/r/seattle" ]
             , ["/sysadmin", "s","https://reddit.com/r/sysadmin" ]
             , ["/programmerhumor", "p","https://reddit.com/r/programmerhumor" ]
-            # , ["/4chan", "4","https://reddit.com/r/4chan" ]
             , ["/dccomics", "d","https://reddit.com/r/dccomics" ]
             , ["/dumb memes", "a","https://reddit.com/r/anime_irl" ]
             , ["/globaloffensive", "g","https://reddit.com/r/globaloffensive" ]
+            , ["/league", "l","https://reddit.com/r/leagueoflegends" ]
             , ["/osu", "o","https://reddit.com/r/osugame" ]
             , ["/tf2", "t","https://reddit.com/r/tf2" ]
         ]]
@@ -55,6 +54,7 @@ l = [
               ["/ot", "o", "https://uboachan.net/ot/catalog.html"]
             , ["/lounge", "l", "https://sushigirl.us/lounge/catalog.html"]
             , ["/danger/u", "d", "https://boards.dangeru.us/u/"]
+            , ["/sama", "z", "https://samachan.org/z/catalog.html"]
         ]]
         , ["/lain/", "l" , [
               ["/mega", "m", "https://lainchan.org/mega/catalog.html"]
@@ -88,6 +88,12 @@ l = [
             , ["/test", "t", "https://dangeru.us/test"]
             , ["/lain", "l", "https://dangeru.us/lain"]
             , ["/tech", "e", "https://dangeru.us/tech"]
+            , ["/cyb", "c", "https://dangeru.us/cyb"]
+        ]]
+        , ["/int/", "i", [
+              ["/8/argentina", "a", "https://8ch.net/argentina/catalog.html"]
+            , ["/8/canada", "c", "https://8ch.net/canada/catalog.html"]
+            , ["/hilo_latino", "h", "https://4chan.org/int"] # TODO
         ]]
       ]]
     , ["/tube/", "t", [
@@ -132,31 +138,22 @@ l = [
 ]
 special = "https://niles.xyz"
 
-
-
 def rjs(f, z):
     result = []
     result.append("if (" + str(ord(f[1].upper())) + " == x && z == '"+z+"') {")
     result.append("document.getElementById(z+'" + f[1] + "').style.color = '#CC0000';")
-    if type(f[2]) == str:
+    if type(f[2]) == str: # link
         result.append("window.location = '" + f[2] + "';")
-    else:
+    else: # other menu
         result.append("z = z + '"+f[1]+"';")
-        result.append("var x = document.getElementsByClassName(z);")
-        result.append("for (var i = 0; i < x.length; i++) { x[i].style.display = 'inline-block'; }")
+        result.append("var x = arr(document.getElementsByClassName(z));")
+        result.append("x.forEach(function(elem) { elem.style.display = 'inline-block'; })")
+        result.append("x[0].parentNode.style.zIndex = 10 * x[0].id.length;")
         result.append("var x = document.getElementById(z);")
         result.append("x.onclick = function() { collapse('" + str(z) + "');}")
-    if f[2] == 0:
+    if f[2] == 0: # search box
         result.append("var x = document.getElementById(z + '"+f[1]+"' + 'i');");
-        # result.append("x.value = '';")
         result.append("x.focus();");
-        # result.append("var x = document.getElementById(z + '"+f[1]+"');");
-        # result.append("x.innerHTML = '';")
-        # result.append("var tempform = document.createElement('form');");
-        # result.append("var tempinput = document.createElement('input');")
-        # result.append("tempform.appendChild(tempinput); x.appendChild(tempform);")
-        # result.append("tempinput.focus();")
-        # result.append("tempinput.value = '';")
         result.append("event.preventDefault();") # this was the magic spice
     result.append("}")
     if type(f[2]) == list:
@@ -166,34 +163,27 @@ def rjs(f, z):
 
 def rjs2(f, z):
     result = []
-    if type(f[2]) != str:
+    if type(f[2]) != str: # submenu or search
         result.append("if (z == '"+z+"') {")
         result.append("document.getElementById(z+'" + f[1] + "').onclick = function() { if (z != \""+z+"\") { collapse(\""+z+"\") } key({keyCode:" + str(ord(f[1].upper())) + " }) };")
         result.append("}")
-        if type(f[2]) == list:
+        if type(f[2]) == list: # submenu
             for l in f[2]:
                 result.append(rjs2(l, z + f[1]))
-        elif f[2] == 0:
-            #result.append("document.getElementById(z + '"+ f[1] +"' + 'i').value = ''")
-            # replaced with the onBlur thing
-            pass
     return "\n".join(result)
 
 def rhtml(f, z):
     result = []
-    href = ""
-    # no longer needed because the onclick handler redirects the page
-    # if type(f[2]) == str:
-        # href = "href='"+f[2]+"'"
+    display = ""
     if len(z) > 0:
-        href = "style='display: none;'"
-    result.append(''.join(["<a class='"+z+"' id='",z,f[1],"' ",href," onclick='collapse(\""+z+"\"); key({keyCode:"+str(ord(f[1].upper()))+"})'>", f[0], "</a>"]))
-    if type(f[2]) != str:
+        display = "style='display: none;'"
+    result.append(''.join(["<a class='",z,"' id='",z,f[1],"' ",display," onclick='collapse(\"",z,"\"); key({keyCode:",str(ord(f[1].upper())),"})'>", f[0], "</a>"]))
+    if type(f[2]) != str: # submenu or search
         result.append("<span style='position: absolute; left: 200px; top: 0px; width: 300px;'>")
-        if type(f[2]) == list:
+        if type(f[2]) == list: # submenu
             for l in f[2]:
                 result.append(rhtml(l, z + f[1]))
-        elif f[2] == 0:
+        elif f[2] == 0: #  search
             result.append(rsearch(f, z + f[1]))
         result.append("</span>")
     result.append("<br />")
@@ -237,9 +227,13 @@ function pi() {
         window.location = '""" + special + """';
     }
 }
+function arr(thing) {
+    return Array.prototype.slice.call(thing, 0);
+}
 function collapse_one() {
-    var x = document.getElementsByClassName(z);
-    for (var i = 0; i < x.length; i++) { x[i].style.display = 'none'; }
+    var x = arr(document.getElementsByClassName(z));
+    x.forEach(function(elem) { elem.style.display = "none"; })
+    x[0].parentNode.style.zIndex = 0;
     document.getElementById(z).style.color = '#eeeeee';
     z = z.substring(0, z.length - 1);""")
 for f in l:
@@ -269,8 +263,6 @@ function key(event) {
             return;
         }
         collapse_one()
-        """)
-master.append("""
         return;
     }
     var x = event.which || event.keyCode;
