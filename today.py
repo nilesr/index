@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import time, datetime, yweather, yahoo_finance, subprocess, os, json, urllib.request
+import time, datetime, yweather, subprocess, os, json, urllib.request, pandas_datareader.data
 day_of_week = time.localtime().tm_wday
 now = time.time()
 #now = time.time() + 60*28 + 60*60*13
@@ -139,16 +139,21 @@ def stock(stk):
     filename = tmp + "stock_" + stk
     if os.path.exists(filename) and now - os.stat(filename).st_mtime < 60*60: # cache for a maximum of one hour
         return open(filename, "r").read()
-    s = yahoo_finance.Share(stk)
+    #s = yahoo_finance.Share(stk)
     #val = float(s.get_percent_change().replace("%", "")) # unstable as fuck
 
-    val = round(100 * (float(s.get_price())/float(s.get_prev_close()) - 1), 1)
+    #val = round(100 * (float(s.get_price())/float(s.get_prev_close()) - 1), 1)
 
     #yesterday = time.strftime("%Y-%m-%d", time.localtime(now - 24*60*60))
     #s_y = s.get_historical(yesterday, yesterday)
     #price_now = float(s.data_set["Ask"])
     #price_yesterday = float(s_y[0]["Close"])
     #val = round(100 * ((price_now/price_yesterday) - 1), 1)
+
+    local = time.localtime(now)
+    dt_now = datetime.datetime(local.tm_year, local.tm_mon, local.tm_mday)
+    r = pandas_datareader.data.DataReader(stk, "google", dt_now, dt_now).iloc[-1]
+    val = round(100 * (float(r.Close)/float(r.Open) - 1), 1)
 
     word = "up"
     if val < 0:
@@ -170,7 +175,8 @@ messages = [
     , ["say", "The time is " + get_pretty_time()]
     , ["say", ("Your next class is " + get_name(todays_classes[0]) + " in " + get_pretty_interval(now, get_time(todays_classes[0])) if len(todays_classes) > 0 else "You have no classes today")]
     , ["say", ("You have an alarm set for " + get_pretty_time(todays_alarms[0])) if len(todays_alarms) > 0 else "You have no alarms set for today"]
-    #, ["say", "The SNP 500 is " + stock("^GSPC") + " and AMD is " + stock("AMD")]
+    #, ["say", "The S&P 500 is " + stock("^GSPC") + " and AMD is " + stock("AMD")]
+    , ["say", "AMD is " + stock("AMD")]
     , ["say", "The weather for Blacksburg is " + weather()]
     , ["say", "Tommorow's weather is " + weather(0)]
     #, ["exec", "npr"] # todo, skip 20 secs
