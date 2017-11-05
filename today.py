@@ -7,7 +7,7 @@ tmp = "/tmp/"
 
 voice = False
 
-### A fucton of helpers
+### A fuckton of helpers
 
 def time_period():
     return "Morning" if time.localtime(now).tm_hour < 12 else "Afternoon"
@@ -94,10 +94,10 @@ def get_time(c): return c[1]
 ### Actual commands
 
 classes = [
-      [["Multivar", today(10, 10)], ["Physics", today(11, 15)], ["Physics again", today(12, 20)]] # monday is zero
-    , [["DSA", today(12, 30)], ["2505", today(14, 00)], ["Discrete", today(15, 30)], ["Seminar", today(17, 00)]]
+      [["Multivar", today(10, 10)], ["Physics", today(11, 15)], ["Physics Recitation", today(12, 20)]] # monday is zero
+    , [["2505", today(14, 00)], ["Discrete", today(15, 30)], ["Seminar", today(17, 00)]]
     , [["Multivar", today(10, 10)], ["Physics", today(12, 20)], ["Lab", today(14, 30)]]
-    , [["DSA", today(12, 30)], ["2505", today(14, 00)], ["Discrete", today(15, 30)]]
+    , [["2505", today(14, 00)], ["Discrete", today(15, 30)]]
     , [["Multivar", today(10, 10)], ["Physics", today(12, 20)]] # friday
     , []
     , [] # sunday
@@ -105,9 +105,9 @@ classes = [
 
 alarms = [
       [today(9, 40), today(11, 5), today(12, 10)] # monday
-    , [today(12, 0), today(13, 30), today(15, 20), today(16, 50)]
+    , [today(13, 30), today(15, 20), today(16, 50)]
     , [today(9, 40), today(11, 50), today(14, 00)]
-    , [today(12, 0), today(13, 30), today(15, 20)]
+    , [today(13, 30), today(15, 20)]
     , [today(9, 40), today(11, 50)] # friday
     , []
     , [] # sunday
@@ -124,7 +124,6 @@ def weather(day = -1):
         return open(filename, "r").read()
     wid = "2365044" # BLACKSBURG
     #wid = "12798962" # SEATTLE
-    #url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%20%3D%20%22blacksburg%2C%20va%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
     url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20%3D%20"+wid+"&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
     data = json.loads(urllib.request.urlopen(url).read().decode("utf-8"))
     if day == -1:
@@ -140,12 +139,12 @@ def stock(stk):
     filename = tmp + "stock_" + stk
     if os.path.exists(filename) and now - os.stat(filename).st_mtime < 60*60: # cache for a maximum of one hour
         return open(filename, "r").read()
-    yesterday = time.strftime("%Y-%m-%d", time.localtime(now - 24*60*60))
     s = yahoo_finance.Share(stk)
     #val = float(s.get_percent_change().replace("%", "")) # unstable as fuck
 
     val = round(100 * (float(s.get_price())/float(s.get_prev_close()) - 1), 1)
 
+    #yesterday = time.strftime("%Y-%m-%d", time.localtime(now - 24*60*60))
     #s_y = s.get_historical(yesterday, yesterday)
     #price_now = float(s.data_set["Ask"])
     #price_yesterday = float(s_y[0]["Close"])
@@ -171,7 +170,7 @@ messages = [
     , ["say", "The time is " + get_pretty_time()]
     , ["say", ("Your next class is " + get_name(todays_classes[0]) + " in " + get_pretty_interval(now, get_time(todays_classes[0])) if len(todays_classes) > 0 else "You have no classes today")]
     , ["say", ("You have an alarm set for " + get_pretty_time(todays_alarms[0])) if len(todays_alarms) > 0 else "You have no alarms set for today"]
-    , ["say", "The SNP 500 is " + stock("^GSPC") + " and AMD is " + stock("AMD")]
+    #, ["say", "The SNP 500 is " + stock("^GSPC") + " and AMD is " + stock("AMD")]
     , ["say", "The weather for Blacksburg is " + weather()]
     , ["say", "Tommorow's weather is " + weather(0)]
     #, ["exec", "npr"] # todo, skip 20 secs
