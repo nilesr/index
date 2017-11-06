@@ -94,7 +94,7 @@ def get_time(c): return c[1]
 ### Actual commands
 
 classes = [
-      [["Multivar", today(10, 10)], ["Physics", today(11, 15)], ["Physics Recitation", today(12, 20)]] # monday is zero
+      [["Multivar", today(10, 10)], ["Physics Recitation", today(11, 15)], ["Physics", today(12, 20)]] # monday is zero
     , [["2505", today(14, 00)], ["Discrete", today(15, 30)], ["Seminar", today(17, 00)]]
     , [["Multivar", today(10, 10)], ["Physics", today(12, 20)], ["Lab", today(14, 30)]]
     , [["2505", today(14, 00)], ["Discrete", today(15, 30)]]
