@@ -37,23 +37,23 @@ l = [
             , ["/endtech", "e", "https://endchan.xyz/tech/catalog.html"]
             , ["/λ", "p", "https://lainchan.org/%CE%BB/catalog.html"]
             , ["/finaltech", "f", "https://finalchan.net/t/catalog.html"]
-            , ["/danger/tech", "d", "https://boards.dangeru.us/tech/"]
+            , ["/danger/tech", "d", "https://dangeru.us/tech/"]
         ]]
         , ["/music/", "m", [
               ["/mu", "m", "https://aurorachan.net/mu/"]
             , ["/tunes", "t", "https://sushigirl.us/tunes/catalog.html"]
             , ["/media", "e", "https://uboachan.net/media/catalog.html"]
-            , ["/danger/mu", "d", "https://boards.dangeru.us/mu/"]
+            , ["/danger/mu", "d", "https://dangeru.us/mu/"]
         ]]
         , ["/transport", "n", "https://boards.4chan.org/n"]
         , ["/news/", "z", [
               ["/4", "4", "https://boards.4chan.org/news"]
-            , ["/danger/new", "d", "https://boards.dangeru.us/new/"]
+            , ["/danger/new", "d", "https://dangeru.us/new/"]
         ]]
         , ["/off_topic/", "o", [
               ["/ot", "o", "https://uboachan.net/ot/catalog.html"]
             , ["/lounge", "l", "https://sushigirl.us/lounge/catalog.html"]
-            , ["/danger/u", "d", "https://boards.dangeru.us/u/"]
+            , ["/danger/u", "d", "https://dangeru.us/u/"]
             , ["/sama", "z", "https://samachan.org/z/catalog.html"]
         ]]
         , ["/lain/", "l" , [
@@ -73,8 +73,8 @@ l = [
             , ["/end", "e", "https://endchan.xyz/overboard/"]
             # , ["/penumbranet", "p", "https://penumbra.network/overboard/"] # down
             # , ["/unsafe", "u", "https://jinteki.industries/"] # formerly cyberlife.unsafe.space, down
-            , ["/danger/cyb", "d", "https://boards.dangeru.us/cyb/"]
-            , ["/danger/lain", "l", "https://boards.dangeru.us/lain/"]
+            , ["/danger/cyb", "d", "https://dangeru.us/cyb/"]
+            , ["/danger/lain", "l", "https://dangeru.us/lain/"]
         ]]
         , ["/dynu/", "y", [
               ["/letterbox", "l", "http://afternoon.dynu.com/letterbox.html"]
