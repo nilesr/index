@@ -1,3 +1,4 @@
+SEARCH = 0
 l = [
       ["/r/", "r", [
           ["/inbox", "i", "https://reddit.com/message/inbox"]
@@ -21,8 +22,8 @@ l = [
             , ["/osu", "o","https://reddit.com/r/osugame" ]
             , ["/tf2", "t","https://reddit.com/r/tf2" ]
         ]]
-        , ["/r?", "r", 0, "https://reddit.com/r/%s", "reddit.com/r/"]
-        , ["/u?", "u", 0, "https://reddit.com/u/%s", "reddit.com/u/"]
+        , ["/r?", "r", SEARCH, "https://reddit.com/r/%s", "reddit.com/r/"]
+        , ["/u?", "u", SEARCH, "https://reddit.com/u/%s", "reddit.com/u/"]
       ]]
     , ["/chan/", "c", [
           ["/ck", "k", "https://4chan.org/ck"]
@@ -102,10 +103,10 @@ l = [
         , ["/two", "2", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KQO4aHOqypivLefSFKq2vp1"]
         , ["/three", "3", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KSeW6AmMmg3D4etDs5YeX8q"]
         , ["/four", "4", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KTkhLF_MECKCA8DFWQIsGq7"]
-        , ["/five", "5", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KRlyVVSJZQEt2H-TqU-e_Tf"]
+        #, ["/five", "5", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KRlyVVSJZQEt2H-TqU-e_Tf"]
         , ["/favorites", "f", "https://www.youtube.com/playlist?list=FLRkKd3ko9mg_WdWoilM654A"]
         , ["/watchlist", "w", "https://www.youtube.com/playlist?list=WL"]
-        , ["/search?", "s", 0, "https://www.youtube.com/results?search_query=%s", "Search Youtube"]
+        , ["/search?", "s", SEARCH, "https://www.youtube.com/results?search_query=%s", "Search Youtube"]
       ]]
     , ["/other/", "o", [
           ["/mebious/", "m", [
@@ -118,7 +119,10 @@ l = [
         , ["/Шрифты", "w", "https://vk.com/topic-50911295_28400542"]
         , ["/scaneye", "s", "https://scaneye.net/"]
         , ["/codewars", "c", "https://codewars.com/dashboard"]
-        , ["/filechef", "f", "https://filechef.com"]
+        , ["/files/", "f", [
+              ["/filechef", "c", "http://filechef.com"]
+            , ["/filepursuit", "p", "https://filepursuit.com"]
+            ]]
         , ["/personal/", "p", [
               ["/shmibs", "s", "https://shmibbles.me"]
             , ["/fauux", "f", "https://fauux.neocities.org"]
@@ -134,7 +138,7 @@ l = [
         ]]
         , ["/nntp", "n", "https://2hu-ch.org/catalog-overchan.technology.html"]
     ]]
-    , ["/wikipedia?", "w", 0, "https://en.wikipedia.org/wiki/%s", "Search Wikipedia"]
+    , ["/wikipedia?", "w", SEARCH, "https://en.wikipedia.org/wiki/%s", "Search Wikipedia"]
     , ["/voice", "v", "https://voice.google.com/u/0/messages"]
 ]
 special = "https://niles.xyz"
@@ -152,7 +156,7 @@ def rjs(f, z):
         result.append("x[0].parentNode.style.zIndex = 10 * x[0].id.length;")
         result.append("var x = document.getElementById(z);")
         result.append("x.onclick = function() { collapse('" + str(z) + "');}")
-    if f[2] == 0: # search box
+    if f[2] == SEARCH: # search box
         result.append("var x = document.getElementById(z + '"+f[1]+"' + 'i');");
         result.append("x.focus();");
         result.append("event.preventDefault();") # this was the magic spice
@@ -184,7 +188,7 @@ def rhtml(f, z):
         if type(f[2]) == list: # submenu
             for l in f[2]:
                 result.append(rhtml(l, z + f[1]))
-        elif f[2] == 0: #  search
+        elif f[2] == SEARCH: #  search
             result.append(rsearch(f, z + f[1]))
         result.append("</span>")
     result.append("<br />")
