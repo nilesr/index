@@ -112,9 +112,10 @@ alarms = [
     , []
     , [] # sunday
 ]
+alarms = [[]] * 7 # TEMP
 for k in range(len(alarms)):
-    alarms[k].append(today(22, 0))
-    #alarms[k].append(today(23, 0))
+    alarms[k].append(today(7, 30))
+    alarms[k].append(today(19, 0))
 
 # pass -1 for today
 # 0 for tomorrow's forecast, 1 for the day after that, etc..
@@ -122,8 +123,9 @@ def weather(day = -1):
     filename = tmp + "weather_" + str(day)
     if os.path.exists(filename) and now - os.stat(filename).st_mtime < 60*60: # cache for a maximum of one hour
         return open(filename, "r").read()
-    wid = "2365044" # BLACKSBURG
+    #wid = "2365044" # BLACKSBURG
     #wid = "12798962" # SEATTLE
+    wid = "2480318" # FAIRFAX (reston, herndon)
     url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20%3D%20"+wid+"&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
     data = json.loads(urllib.request.urlopen(url).read().decode("utf-8"))
     if day == -1:
@@ -173,11 +175,11 @@ messages = [
       ["say", "Good " + time_period() + " Niles"]
     , ["say", "Today is " + get_pretty_date()]
     , ["say", "The time is " + get_pretty_time()]
-    , ["say", ("Your next class is " + get_name(todays_classes[0]) + " in " + get_pretty_interval(now, get_time(todays_classes[0])) if len(todays_classes) > 0 else "You have no classes today")]
+    #, ["say", ("Your next class is " + get_name(todays_classes[0]) + " in " + get_pretty_interval(now, get_time(todays_classes[0])) if len(todays_classes) > 0 else "You have no classes today")]
     , ["say", ("You have an alarm set for " + get_pretty_time(todays_alarms[0])) if len(todays_alarms) > 0 else "You have no alarms set for today"]
     #, ["say", "The S&P 500 is " + stock("^GSPC") + " and AMD is " + stock("AMD")]
-    , ["say", "AMD is " + stock("AMD")]
-    , ["say", "The weather for Blacksburg is " + weather()]
+    #, ["say", "AMD is " + stock("AMD")]
+    , ["say", "The weather for Reston is " + weather()]
     , ["say", "Tommorow's weather is " + weather(0)]
     #, ["exec", "npr"] # todo, skip 20 secs
 ]
