@@ -107,6 +107,7 @@ l = [
             , ["/lain", "l", "https://dangeru.us/lain"]
             , ["/tech", "e", "https://dangeru.us/tech"]
             , ["/cyb", "c", "https://dangeru.us/cyb"]
+            , ["/popular", "p", "https://dangeru.us/popular"]
         ]]
         , ["/int/", "i", [
               ["/8/argentina", "a", "https://8ch.net/argentina/catalog.html"]
