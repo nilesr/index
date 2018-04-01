@@ -37,7 +37,7 @@ l = [
             , ["/globaloffensive", "g","https://reddit.com/r/globaloffensive" ]
             , ["/league", "l","https://reddit.com/r/leagueoflegends" ]
             , ["/osu", "o","https://reddit.com/r/osugame" ]
-            , ["/tf2", "t","https://reddit.com/r/tf2" ]
+            , ["/programming", "r","https://reddit.com/r/programming" ]
         ]]
         , ["/r?", "r", SEARCH, "https://reddit.com/r/%s", "reddit.com/r/"]
         , ["/u?", "u", SEARCH, "https://reddit.com/u/%s", "reddit.com/u/"]
