@@ -14,6 +14,14 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import sys
+sys.stderr.write("""
+    index  Copyright (C) 2018  Niles Rogoff
+    This program comes with ABSOLUTELY NO WARRANTY; for details type `cat LICENSE'.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; type `cat LICENSE' for details.
+
+""")
 
 SEARCH = 0
 l = [
@@ -32,10 +40,7 @@ l = [
               ["/seatte", "e","https://reddit.com/r/seattle" ]
             , ["/sysadmin", "s","https://reddit.com/r/sysadmin" ]
             , ["/programmerhumor", "p","https://reddit.com/r/programmerhumor" ]
-            , ["/dccomics", "d","https://reddit.com/r/dccomics" ]
             , ["/dumb memes", "a","https://reddit.com/r/anime_irl" ]
-            , ["/globaloffensive", "g","https://reddit.com/r/globaloffensive" ]
-            , ["/league", "l","https://reddit.com/r/leagueoflegends" ]
             , ["/osu", "o","https://reddit.com/r/osugame" ]
             , ["/programming", "r","https://reddit.com/r/programming" ]
         ]]
@@ -81,13 +86,14 @@ l = [
             , ["/sec", "s", "https://lainchan.org/sec/catalog.html"]
             , ["/mod", "o", "https://lainchan.org/mod.php?/mod/"]
             , ["/reports", "r", "https://lainchan.org/mod.php?/reports"]
+            , ["/q", "q", "https://lainchan.org/q/catalog.html"]
         ]]
         , ["/cyb/", "c", [
               #   ["/htll", "h", "https://hightechlowlife.eu/board/"] # down
               ["/chiruno", "c", "https://chiru.no/cyber/"]
             , ["/8", "8", "https://8ch.net/cyber/catalog.html"]
             , ["/final", "f", "https://finalchan.net/1984/"]
-            , ["/master", "m", "https://masterchan.org/cyb"]
+            # , ["/master", "m", "https://masterchan.org/cyb"] # down
             , ["/end", "e", "https://endchan.xyz/overboard/"]
             # , ["/penumbranet", "p", "https://penumbra.network/overboard/"] # down
             # , ["/unsafe", "u", "https://jinteki.industries/"] # formerly cyberlife.unsafe.space, down
