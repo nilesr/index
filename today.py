@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 #    <Homepage generator>
 #    Copyright (C) <2018>  <Niles Rogoff> me@niles.xyz
 #
@@ -14,7 +16,6 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#!/usr/bin/env python3
 import time, datetime, yweather, subprocess, os, json, urllib.request, pandas_datareader.data
 day_of_week = time.localtime().tm_wday
 now = time.time()
