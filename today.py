@@ -16,7 +16,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import time, datetime, yweather, subprocess, os, json, urllib.request, pandas_datareader.data
+import time, datetime, subprocess, os, json, urllib.request
 day_of_week = time.localtime().tm_wday
 now = time.time()
 #now = time.time() + 60*28 + 60*60*13
@@ -30,9 +30,9 @@ def time_period():
     return "Morning" if time.localtime(now).tm_hour < 12 else "Afternoon"
 
 # hours = 3
-# str(hours) + " hours" + sp(hours) -> "3 hours"
+# str(hours) + " hour" + sp(hours) -> "3 hours"
 # hours = 1
-# str(hours) + " hours" + sp(hours) -> "1 hour"
+# str(hours) + " hour" + sp(hours) -> "1 hour"
 def sp(a):
     if a == 1:
         return ""
@@ -129,10 +129,11 @@ alarms = [
     , []
     , [] # sunday
 ]
+classes = [[]] * 7 # TEMP
 alarms = [[]] * 7 # TEMP
-for k in range(len(alarms)):
-    alarms[k].append(today(7, 30))
-    alarms[k].append(today(19, 0))
+for k in range(len(alarms)): # TEMP
+    alarms[k].append(today(7, 30)) # TEMP
+    alarms[k].append(today(19, 0)) # TEMP
 
 # pass -1 for today
 # 0 for tomorrow's forecast, 1 for the day after that, etc..
@@ -169,10 +170,14 @@ def stock(stk):
     #price_yesterday = float(s_y[0]["Close"])
     #val = round(100 * ((price_now/price_yesterday) - 1), 1)
 
-    local = time.localtime(now)
-    dt_now = datetime.datetime(local.tm_year, local.tm_mon, local.tm_mday)
-    r = pandas_datareader.data.DataReader(stk, "google", dt_now, dt_now).iloc[-1]
-    val = round(100 * (float(r.Close)/float(r.Open) - 1), 1)
+    #local = time.localtime(now)
+    #dt_now = datetime.datetime(local.tm_year, local.tm_mon, local.tm_mday)
+    #r = pandas_datareader.data.DataReader(stk, "google", dt_now, dt_now).iloc[-1]
+    #val = round(100 * (float(r.Close)/float(r.Open) - 1), 1)
+
+    r = json.loads(urllib.request.urlopen("https://api.iextrading.com/1.0/stock/"+stk+"/chart/1m").read().decode("utf-8"))
+    val = float(r[-1]["changePercent"])
+    val = round(val, 1)
 
     word = "up"
     if val < 0:
@@ -192,10 +197,10 @@ messages = [
       ["say", "Good " + time_period() + " Niles"]
     , ["say", "Today is " + get_pretty_date()]
     , ["say", "The time is " + get_pretty_time()]
-    #, ["say", ("Your next class is " + get_name(todays_classes[0]) + " in " + get_pretty_interval(now, get_time(todays_classes[0])) if len(todays_classes) > 0 else "You have no classes today")]
+    , ["say", ("Your next class is " + get_name(todays_classes[0]) + " in " + get_pretty_interval(now, get_time(todays_classes[0])) if len(todays_classes) > 0 else "You have no classes today")]
     , ["say", ("You have an alarm set for " + get_pretty_time(todays_alarms[0])) if len(todays_alarms) > 0 else "You have no alarms set for today"]
     #, ["say", "The S&P 500 is " + stock("^GSPC") + " and AMD is " + stock("AMD")]
-    #, ["say", "AMD is " + stock("AMD")]
+    , ["say", "The S&P 500 is " + stock("SPY") + " and AMD is " + stock("AMD")]
     , ["say", "The weather for Reston is " + weather()]
     , ["say", "Tommorow's weather is " + weather(0)]
     #, ["exec", "npr"] # todo, skip 20 secs
