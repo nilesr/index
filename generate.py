@@ -1,5 +1,5 @@
-#    <Homepage generator>
-#    Copyright (C) <2018>  <Niles Rogoff> me@niles.xyz
+#    Homepage generator
+#    Copyright (C) 2018  Niles Rogoff me@niles.xyz
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
