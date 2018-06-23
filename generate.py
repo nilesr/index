@@ -43,6 +43,7 @@ l = [
             , ["/dumb memes", "a","https://reddit.com/r/anime_irl" ]
             , ["/osu", "o","https://reddit.com/r/osugame" ]
             , ["/programming", "r","https://reddit.com/r/programming" ]
+            , ["/android", "n","https://reddit.com/r/android" ]
         ]]
         , ["/r?", "r", SEARCH, "https://reddit.com/r/%s", "reddit.com/r/"]
         , ["/u?", "u", SEARCH, "https://reddit.com/u/%s", "reddit.com/u/"]
