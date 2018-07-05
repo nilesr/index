@@ -163,6 +163,8 @@ l = [
             , ["/bookdl", "d", "https://bookdl.com/"]
         ]]
         , ["/nntp", "n", "https://2hu-ch.org/catalog-overchan.technology.html"]
+        , ["/dcum", "d", "http://www.dcurbanmom.com/jforum/forums/show/65.page"]
+        , ["/nextdoor", "x", "https://nextdoor.com/news_feed/"]
     ]]
     , ["/wikipedia?", "w", SEARCH, "https://en.wikipedia.org/wiki/%s", "Search Wikipedia"]
     , ["/voice", "v", "https://voice.google.com/u/0/messages"]
