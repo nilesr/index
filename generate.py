@@ -93,7 +93,7 @@ l = [
         ]]
         , ["/cyb/", "c", [
               ["/htll", "h", "https://hightechlowlife.eu/board/"]
-              ["/chiruno", "c", "https://chiru.no/cyber/"]
+            , ["/chiruno", "c", "https://chiru.no/cyber/"]
             , ["/8", "8", "https://8ch.net/cyber/catalog.html"]
             , ["/final", "f", "https://finalchan.net/1984/"]
             # , ["/master", "m", "https://masterchan.org/cyb"] # down
@@ -106,6 +106,7 @@ l = [
         , ["/dynu/", "y", [
               ["/letterbox", "l", "http://afternoon.dynu.com/letterbox.html"]
             , ["/photoboard", "p", "http://afternoon.dynu.com/photo.html"]
+            , ["/ykkaria", "y", "http://afternoon.dynu.com/ykkaria/"]
         ]]
         , ["/dangeru/", "d", [
               ["/all", "a", "https://dangeru.us/all"]
