@@ -45,6 +45,7 @@ l = [
             , ["/programming", "r","https://reddit.com/r/programming" ]
             , ["/android", "a","https://reddit.com/r/android" ]
             , ["/netsec", "n","https://reddit.com/r/netsec" ]
+            , ["/corecyberpunk", "c","https://reddit.com/r/corecyberpunk" ]
         ]]
         , ["/r?", "r", SEARCH, "https://reddit.com/r/%s", "reddit.com/r/"]
         , ["/u?", "u", SEARCH, "https://reddit.com/u/%s", "reddit.com/u/"]
@@ -52,14 +53,14 @@ l = [
     , ["/chan/", "c", [
           ["/ck", "k", "https://4chan.org/ck"]
         , ["/gd", "g", "https://4chan.org/gd"]
-        , ["/pro", "p", "https://desuchan.moe/pro/"]
+        # , ["/pro", "p", "https://desuchan.moe/pro/"] # dead
         , ["/tech/", "t", [
               ["/laintech", "l" , "https://lainchan.org/tech/catalog.html"]
             # , ["/desutech", "d", "https://desuchan.moe/tech/"] # dead, one post every three weeks, expired ssl cert
             , ["/g", "g", "https://4chan.org/g"]
             , ["/8", "8", "https://8ch.net/tech/catalog.html"]
             , ["/silicon", "s", "https://sushigirl.us/silicon/catalog.html"]
-            , ["/endtech", "e", "https://endchan.xyz/tech/catalog.html"]
+            # , ["/endtech", "e", "https://endchan.xyz/tech/catalog.html"] # dead, connection refused
             , ["/λ", "p", "https://lainchan.org/%CE%BB/catalog.html"]
             , ["/finaltech", "f", "https://finalchan.net/t/catalog.html"]
             , ["/danger/tech", "d", "https://dangeru.us/tech/"]
@@ -79,7 +80,7 @@ l = [
               ["/ot", "o", "https://uboachan.net/ot/catalog.html"]
             , ["/lounge", "l", "https://sushigirl.us/lounge/catalog.html"]
             , ["/danger/u", "d", "https://dangeru.us/u/"]
-            , ["/sama", "z", "https://samachan.org/z/catalog.html"]
+            , ["/sama", "s", "https://samachan.org/z/catalog.html"]
         ]]
         , ["/lain/", "l" , [
               ["/mega", "m", "https://lainchan.org/mega/catalog.html"]
@@ -91,12 +92,12 @@ l = [
             , ["/q", "q", "https://lainchan.org/q/catalog.html"]
         ]]
         , ["/cyb/", "c", [
-              #   ["/htll", "h", "https://hightechlowlife.eu/board/"] # down
+              ["/htll", "h", "https://hightechlowlife.eu/board/"]
               ["/chiruno", "c", "https://chiru.no/cyber/"]
             , ["/8", "8", "https://8ch.net/cyber/catalog.html"]
             , ["/final", "f", "https://finalchan.net/1984/"]
             # , ["/master", "m", "https://masterchan.org/cyb"] # down
-            , ["/end", "e", "https://endchan.xyz/overboard/"]
+            # , ["/end", "e", "https://endchan.xyz/overboard/"] # down
             # , ["/penumbranet", "p", "https://penumbra.network/overboard/"] # down
             # , ["/unsafe", "u", "https://jinteki.industries/"] # formerly cyberlife.unsafe.space, down
             , ["/danger/cyb", "d", "https://dangeru.us/cyb/"]
