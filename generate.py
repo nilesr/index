@@ -255,7 +255,7 @@ var shift = false;
 function doSearch(toAddress, inputSelector) {
     var s = document.getElementById(inputSelector + 'i').value;
     //alert(toAddress);
-    document.location = toAddress.replace("%s", s);
+    document.location = toAddress.replace("%s", encodeURIComponent(s));
 }
 function pi() {
     if (ctrl && shift) {
