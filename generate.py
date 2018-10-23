@@ -134,6 +134,7 @@ l = [
         , ["/five", "5", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KRlyVVSJZQEt2H-TqU-e_Tf"]
         , ["/favorites", "f", "https://www.youtube.com/playlist?list=FLRkKd3ko9mg_WdWoilM654A"]
         , ["/watchlist", "w", "https://www.youtube.com/playlist?list=WL"]
+        , ["/other", "o", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KSBjjq-1WjPlQABJoNVZIOL"]
         , ["/search?", "s", SEARCH, "https://www.youtube.com/results?search_query=%s", "Search Youtube"]
       ]]
     , ["/other/", "o", [
