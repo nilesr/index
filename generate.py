@@ -1,5 +1,5 @@
 #    Homepage generator
-#    Copyright (C) 2018  Niles Rogoff me@niles.xyz
+#    Copyright (C) 2019  Niles Rogoff me@niles.xyz
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
 
 import sys
 sys.stderr.write("""
-    index  Copyright (C) 2018  Niles Rogoff
+    index  Copyright (C) 2019  Niles Rogoff
     This program comes with ABSOLUTELY NO WARRANTY; for details type `cat LICENSE'.
     This is free software, and you are welcome to redistribute it
     under certain conditions; type `cat LICENSE' for details.
@@ -147,6 +147,7 @@ l = [
         ]]
         , ["/vola", "v", "https://volafile.io/r/kUFzLJ"]
         , ["/Шрифты", "w", "https://vk.com/topic-50911295_28400542"]
+        , ["/getthefont", "g", "https://getthefont.com"]
         , ["/scaneye", "s", "https://scaneye.net/"]
         , ["/codewars", "c", "https://codewars.com/dashboard"]
         , ["/files/", "f", [
