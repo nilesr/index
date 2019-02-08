@@ -166,6 +166,7 @@ l = [
             , ["/it-ebooks", "i", "http://it-ebooks.info/"]
             , ["/bookzz", "z", "https://bookzz.org/"]
             , ["/bookdl", "d", "https://bookdl.com/"]
+            , ["/booksdescr", "s", "http://booksdescr.org/"]
         ]]
         , ["/nntp", "n", "https://2hu-ch.org/catalog-overchan.technology.html"]
         , ["/dcum", "d", "http://www.dcurbanmom.com/jforum/forums/show/65.page"]
