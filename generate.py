@@ -150,6 +150,7 @@ l = [
         , ["/getthefont", "g", "https://getthefont.com"]
         , ["/scaneye", "s", "https://scaneye.net/"]
         , ["/codewars", "c", "https://codewars.com/dashboard"]
+        , ["/hackernews", "h", "https://news.ycombinator.com"]
         , ["/files/", "f", [
               ["/filechef", "c", "http://filechef.com"]
             , ["/filepursuit", "p", "https://filepursuit.com"]
