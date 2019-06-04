@@ -135,6 +135,7 @@ l = [
         , ["/favorites", "f", "https://www.youtube.com/playlist?list=FLRkKd3ko9mg_WdWoilM654A"]
         , ["/watchlist", "w", "https://www.youtube.com/playlist?list=WL"]
         , ["/other", "o", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KSBjjq-1WjPlQABJoNVZIOL"]
+        , ["/edgy_boi_music", "e", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KQE5Yy9McX-FrypzSPO4CpS"]
         , ["/search?", "s", SEARCH, "https://www.youtube.com/results?search_query=%s", "Search Youtube"]
         , ["/v=?", "v", SEARCH, "https://www.youtube.com/watch?v=%s", "Video ID"]
       ]]
@@ -183,7 +184,7 @@ def rjs(f, z):
     result.append("if (" + str(ord(f[1].upper())) + " == x && z == '"+z+"') {")
     result.append("document.getElementById(z+'" + f[1] + "').style.color = '#CC0000';")
     if type(f[2]) == str: # link
-        result.append("window.location = '" + f[2] + "';")
+        result.append("window.top.location = '" + f[2] + "';")
     else: # other menu
         result.append("z = z + '"+f[1]+"';")
         result.append("var x = arr(document.getElementsByClassName(z));")
@@ -260,11 +261,11 @@ var shift = false;
 function doSearch(toAddress, inputSelector) {
     var s = document.getElementById(inputSelector + 'i').value;
     //alert(toAddress);
-    document.location = toAddress.replace("%s", encodeURIComponent(s));
+    window.top.location.href = toAddress.replace("%s", encodeURIComponent(s));
 }
 function pi() {
     if (ctrl && shift) {
-        window.location = '""" + special + """';
+        window.top.location = '""" + special + """';
     }
 }
 function arr(thing) {
@@ -274,7 +275,7 @@ function collapse_one() {
     var x = arr(document.getElementsByClassName(z));
     x.forEach(function(elem) { elem.style.display = "none"; })
     x[0].parentNode.style.zIndex = 0;
-    document.getElementById(z).style.color = '#eeeeee';
+    document.getElementById(z).style.color = 'black';
     z = z.substring(0, z.length - 1);""")
 for f in l:
     master.append(rjs2(f, ""))

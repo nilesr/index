@@ -18,7 +18,7 @@
 
 body {
 	font-family:helvetica;
-	background:url("background.png") no-repeat center/cover fixed;
+	background:url("background2.jpg") no-repeat center/cover fixed;
 	/*color: #595959;*/
 	/*color: #eeeeee;*/
 	color: rgba(238,238,238, 0.8);
@@ -26,13 +26,14 @@ body {
 #content {
 	margin-left: 5%;
 	margin-top: 50px;
-	font-family: "Camcorder Monospaced", "Helvetica", sans-serif;
+	font-family: "Raleway", "Helvetica", sans-serif;
 	position:relative;
 	font-size: 24px;
 }
 a {
 	/*color: #595959;*/
-	color: #eeeeee;
+	/*color: #eeeeee; */
+	color: black;
 	transition: color .1s;
 	text-decoration: none;
 }

@@ -201,8 +201,8 @@ messages = [
     , ["say", ("You have an alarm set for " + get_pretty_time(todays_alarms[0])) if len(todays_alarms) > 0 else "You have no alarms set for today"]
     #, ["say", "The S&P 500 is " + stock("^GSPC") + " and AMD is " + stock("AMD")]
     , ["say", "The S&P 500 is " + stock("SPY") + " and AMD is " + stock("AMD")]
-    , ["say", "The weather for Reston is " + weather()]
-    , ["say", "Tommorow's weather is " + weather(0)]
+    # , ["say", "The weather for Reston is " + weather()]
+    # , ["say", "Tommorow's weather is " + weather(0)]
     #, ["exec", "npr"] # todo, skip 20 secs
 ]
 
