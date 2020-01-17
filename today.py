@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 #    Homepage generator
-#    Copyright (C) 2019  Niles Rogoff me@niles.xyz
+#    Copyright (C) 2020  Niles Rogoff me@niles.xyz
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
