@@ -14,7 +14,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import sys
+import sys, string
 sys.stderr.write("""
     index  Copyright (C) 2020  Niles Rogoff
     This program comes with ABSOLUTELY NO WARRANTY; for details type `cat LICENSE'.
@@ -126,7 +126,8 @@ l = [
         ]]
       ]]
     , ["/tube/", "t", [
-          ["/zero", "0", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KR4Q-pC-7MLb_DoRmzYOCUw"]
+          ["/negative one", "-", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KQaxX8HMGECXVq1-ZCsER-B"]
+        , ["/zero", "0", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KR4Q-pC-7MLb_DoRmzYOCUw"]
         , ["/one", "1", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KRZ43r5UVGNraUgvyPaUMBU"]
         , ["/two", "2", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KQO4aHOqypivLefSFKq2vp1"]
         , ["/three", "3", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KSeW6AmMmg3D4etDs5YeX8q"]
@@ -180,9 +181,16 @@ l = [
 ]
 special = "https://niles.xyz"
 
+def keycode(k):
+    if k in string.ascii_uppercase + string.digits:
+        return ord(k)
+    return {
+        "-": 173
+    }[k]
+
 def rjs(f, z):
     result = []
-    result.append("if (" + str(ord(f[1].upper())) + " == x && z == '"+z+"') {")
+    result.append("if (" + str(keycode(f[1].upper())) + " == x && z == '"+z+"') {")
     result.append("document.getElementById(z+'" + f[1] + "').style.color = '#CC0000';")
     if type(f[2]) == str: # link
         result.append("window.top.location = '" + f[2] + "';")
@@ -207,7 +215,7 @@ def rjs2(f, z):
     result = []
     if type(f[2]) != str: # submenu or search
         result.append("if (z == '"+z+"') {")
-        result.append("document.getElementById(z+'" + f[1] + "').onclick = function() { if (z != \""+z+"\") { collapse(\""+z+"\") } key({keyCode:" + str(ord(f[1].upper())) + " }) };")
+        result.append("document.getElementById(z+'" + f[1] + "').onclick = function() { if (z != \""+z+"\") { collapse(\""+z+"\") } key({keyCode:" + str(keycode(f[1].upper())) + " }) };")
         result.append("}")
         if type(f[2]) == list: # submenu
             for l in f[2]:
@@ -219,7 +227,7 @@ def rhtml(f, z):
     display = ""
     if len(z) > 0:
         display = "style='display: none;'"
-    result.append(''.join(["<a class='",z,"' id='",z,f[1],"' ",display," onclick='collapse(\"",z,"\"); key({keyCode:",str(ord(f[1].upper())),"})'>", f[0], "</a>"]))
+    result.append(''.join(["<a class='",z,"' id='",z,f[1],"' ",display," onclick='collapse(\"",z,"\"); key({keyCode:",str(keycode(f[1].upper())),"})'>", f[0], "</a>"]))
     if type(f[2]) != str: # submenu or search
         result.append("<span style='position: absolute; left: 200px; top: 0px; width: 300px;'>")
         if type(f[2]) == list: # submenu
