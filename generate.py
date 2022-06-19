@@ -133,6 +133,7 @@ l = [
         , ["/three", "3", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KSeW6AmMmg3D4etDs5YeX8q"]
         , ["/four", "4", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KTkhLF_MECKCA8DFWQIsGq7"]
         , ["/five", "5", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KRlyVVSJZQEt2H-TqU-e_Tf"]
+        , ["/six", "6", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KS7Ec5_XtTj1yqn7ZCHXUHJ"]
         , ["/favorites", "f", "https://www.youtube.com/playlist?list=FLRkKd3ko9mg_WdWoilM654A"]
         , ["/watchlist", "w", "https://www.youtube.com/playlist?list=WL"]
         , ["/other", "o", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KSBjjq-1WjPlQABJoNVZIOL"]
