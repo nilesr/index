@@ -126,7 +126,8 @@ l = [
         ]]
       ]]
     , ["/tube/", "t", [
-          ["/negative one", "-", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KQaxX8HMGECXVq1-ZCsER-B"]
+          ["/negative two", "@", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KQqbqKdGuYPzGPEDFs6xDvC"]
+        , ["/negative one", "!", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KQaxX8HMGECXVq1-ZCsER-B"]
         , ["/zero", "0", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KR4Q-pC-7MLb_DoRmzYOCUw"]
         , ["/one", "1", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KRZ43r5UVGNraUgvyPaUMBU"]
         , ["/two", "2", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KQO4aHOqypivLefSFKq2vp1"]
@@ -134,6 +135,7 @@ l = [
         , ["/four", "4", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KTkhLF_MECKCA8DFWQIsGq7"]
         , ["/five", "5", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KRlyVVSJZQEt2H-TqU-e_Tf"]
         , ["/six", "6", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KS7Ec5_XtTj1yqn7ZCHXUHJ"]
+        , ["/seven", "7", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KQK4AHiQy3cx_7FMIG7aBru"]
         , ["/favorites", "f", "https://www.youtube.com/playlist?list=FLRkKd3ko9mg_WdWoilM654A"]
         , ["/watchlist", "w", "https://www.youtube.com/playlist?list=WL"]
         , ["/other", "o", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KSBjjq-1WjPlQABJoNVZIOL"]
@@ -186,12 +188,15 @@ def keycode(k):
     if k in string.ascii_uppercase + string.digits:
         return ord(k)
     return {
-        "-": 173
+        "!": 49,
+        "@": 50
     }[k]
 
 def rjs(f, z):
     result = []
-    result.append("if (" + str(keycode(f[1].upper())) + " == x && z == '"+z+"') {")
+    # not working right yet
+    addtl_pred = "shift && " if f[1].upper() not in (string.ascii_uppercase + string.digits) else "!shift && "
+    result.append("if (" + addtl_pred + str(keycode(f[1].upper())) + " == x && z == '"+z+"') {")
     result.append("document.getElementById(z+'" + f[1] + "').style.color = '#CC0000';")
     if type(f[2]) == str: # link
         result.append("window.top.location = '" + f[2] + "';")
