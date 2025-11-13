@@ -140,6 +140,7 @@ l = [
         , ["/watchlist", "w", "https://www.youtube.com/playlist?list=WL"]
         , ["/other", "o", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KSBjjq-1WjPlQABJoNVZIOL"]
         , ["/edgy_boi_music", "e", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KQE5Yy9McX-FrypzSPO4CpS"]
+        , ["/dixie", "d", "https://www.youtube.com/playlist?list=PLIKcw9O7i0KTQMTlVgpcr2EBG5HdnqvbB"]
         , ["/search?", "s", SEARCH, "https://www.youtube.com/results?search_query=%s", "Search Youtube"]
         , ["/v=?", "v", SEARCH, "https://www.youtube.com/watch?v=%s", "Video ID"]
       ]]
